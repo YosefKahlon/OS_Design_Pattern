@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o"
   "CMakeFiles/OS_Design_Pattern.dir/main.cpp.o"
   "OS_Design_Pattern"
   "OS_Design_Pattern.pdb"

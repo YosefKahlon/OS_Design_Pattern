@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/OS_Design_Pattern.dir/main.cpp.o  -o OS_Design_Pattern 
+/usr/bin/c++  -g   CMakeFiles/OS_Design_Pattern.dir/main.cpp.o CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o  -o OS_Design_Pattern 

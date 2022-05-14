@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.cpp" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o"
   "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.cpp" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

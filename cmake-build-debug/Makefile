@@ -123,6 +123,33 @@ OS_Design_Pattern/fast:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/build
 .PHONY : OS_Design_Pattern/fast
 
+Queue.o: Queue.cpp.o
+
+.PHONY : Queue.o
+
+# target to build an object file
+Queue.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o
+.PHONY : Queue.cpp.o
+
+Queue.i: Queue.cpp.i
+
+.PHONY : Queue.i
+
+# target to preprocess a source file
+Queue.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.i
+.PHONY : Queue.cpp.i
+
+Queue.s: Queue.cpp.s
+
+.PHONY : Queue.s
+
+# target to generate assembly for a file
+Queue.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.s
+.PHONY : Queue.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... OS_Design_Pattern"
+	@echo "... Queue.o"
+	@echo "... Queue.i"
+	@echo "... Queue.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
