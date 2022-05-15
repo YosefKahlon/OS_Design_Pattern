@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include "queue.h"
 #include "queue.c"
 //#include "pthread.h"
@@ -38,4 +39,10 @@ int main() {
 //    pthread_join(b, nullptr);
 //    q.print();
 
+=======
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+>>>>>>> parent of 89a39e1 (coomit)
 }

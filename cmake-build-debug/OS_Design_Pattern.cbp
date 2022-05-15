@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.cpp">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.hpp">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.cpp">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
