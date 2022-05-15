@@ -1,25 +1,27 @@
 #include <iostream>
-#include "Queue.hpp"
-#include "Queue.cpp"
+#include "queue.h"
+#include "queue.c"
 //#include "pthread.h"
 
-
+Queue *shared_qu;
 void* qe( void* arg){
     Queue *q = (Queue*)arg;
     //q.print();
 
     for (int i = 0; i < 10; ++i) {
-        q->enQ(i);
-
+        enqueue(&shared_qu, "Q_INIT");
     }
     return nullptr;
 }
 
 int main() {
 
-    Queue q;
+
+    shared_qu = (Queue *) malloc(sizeof(Queue));
+    shared_qu->head = NULL;
+
     pthread_t a;
-    pthread_t b;
+  //  pthread_t b;
 
     pthread_create(&a, nullptr, &qe, nullptr);
 //
@@ -31,6 +33,8 @@ int main() {
 ////    q.enQ('a');
 //
     pthread_join(a, nullptr);
+
+    print_queue(&shared_qu);
 //    pthread_join(b, nullptr);
 //    q.print();
 
