@@ -5,29 +5,49 @@
 #ifndef THREADS_QUEUE_HPP
 #define THREADS_QUEUE_HPP
 
-//#include "stack.h"
 
+
+
+
+
+
+#include <pthread.h>
+pthread_mutex_t q_mutex;
+
+/* Queue Thread safety handlers */
+pthread_mutex_t q_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t con_peek = PTHREAD_COND_INITIALIZER;
+pthread_cond_t con_dequeue = PTHREAD_COND_INITIALIZER;
+pthread_cond_t con_enqueue = PTHREAD_COND_INITIALIZER;
+
+int queue_resource_counter = 0;
 
 typedef struct node {
-    char data[1024];
+    void* data;
     struct node *next;
 } node;
 
+
 typedef struct Queue {
-    char data[1024];
+
     node *head;
     int size;
 
+
 } Queue;
 
-void enqueue(Queue** queue , char* text);
+Queue* createQ();
 
-void dequeue(Queue**  queue);
+void destoryQ(Queue** queue);
 
-char* peek(Queue**  queue);
+void enQ(Queue** queue,void* n);
+
+void deQ(Queue**  queue);
+
+void* peek(Queue**  queue);
 
 void print_queue(Queue** queue);
 
-void free_queue(Queue** queue);
+
 
 #endif //THREADS_QUEUE_HPP
