@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
+queue.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
+stdlib.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/stdlib.h
+stdio.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/stdio.h
+string.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/string.h
+
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
+

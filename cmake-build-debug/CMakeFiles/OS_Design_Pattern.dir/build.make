@@ -57,45 +57,45 @@ include CMakeFiles/OS_Design_Pattern.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/OS_Design_Pattern.dir/flags.make
 
-CMakeFiles/OS_Design_Pattern.dir/main.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
-CMakeFiles/OS_Design_Pattern.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/main.cpp.o -c /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.cpp
+CMakeFiles/OS_Design_Pattern.dir/main.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OS_Design_Pattern.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/main.c.o   -c /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.c
 
-CMakeFiles/OS_Design_Pattern.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.cpp > CMakeFiles/OS_Design_Pattern.dir/main.cpp.i
+CMakeFiles/OS_Design_Pattern.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_Design_Pattern.dir/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.c > CMakeFiles/OS_Design_Pattern.dir/main.c.i
 
-CMakeFiles/OS_Design_Pattern.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.cpp -o CMakeFiles/OS_Design_Pattern.dir/main.cpp.s
+CMakeFiles/OS_Design_Pattern.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.c -o CMakeFiles/OS_Design_Pattern.dir/main.c.s
 
-CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
-CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o: ../Queue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o -c /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.cpp
+CMakeFiles/OS_Design_Pattern.dir/queue.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/queue.c.o: ../queue.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OS_Design_Pattern.dir/queue.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/queue.c.o   -c /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
 
-CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.cpp > CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.i
+CMakeFiles/OS_Design_Pattern.dir/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_Design_Pattern.dir/queue.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c > CMakeFiles/OS_Design_Pattern.dir/queue.c.i
 
-CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Queue.cpp -o CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.s
+CMakeFiles/OS_Design_Pattern.dir/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/queue.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c -o CMakeFiles/OS_Design_Pattern.dir/queue.c.s
 
 # Object files for target OS_Design_Pattern
 OS_Design_Pattern_OBJECTS = \
-"CMakeFiles/OS_Design_Pattern.dir/main.cpp.o" \
-"CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o"
+"CMakeFiles/OS_Design_Pattern.dir/main.c.o" \
+"CMakeFiles/OS_Design_Pattern.dir/queue.c.o"
 
 # External object files for target OS_Design_Pattern
 OS_Design_Pattern_EXTERNAL_OBJECTS =
 
-OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/main.cpp.o
-OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/Queue.cpp.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/main.c.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/queue.c.o
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/build.make
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable OS_Design_Pattern"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable OS_Design_Pattern"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OS_Design_Pattern.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

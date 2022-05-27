@@ -1,19 +1,21 @@
 CC = g++
 
-all: main
+all: main1 queue.o
 
-main: main.o Queue.hpp
-	$(CC) -o main main.o -lpthread
+main1: main1.o queue.h
+	$(CC) -o main main1.o
 
-#Queue: Queue.o
-#	$(CC) -o Queue Queue.o
 
-Queue.o: Queue.cpp Queue.hpp
-	$(CC) -c Queue.cpp -lpthread
+queue: queue.o
+	$(CC) -o queue queue.o
 
-main.o: main.cpp Queue.hpp
-	$(CC) -c main.cpp -lpthread
+queue.o: queue.c queue.h
+	$(CC) -c queue.c
+
+
+main.o: main1.c queue.h
+	$(CC) -c main1.c
 
 
 clean:
-	rm -f *.o main Queue
+	rm -f *.o main queue
