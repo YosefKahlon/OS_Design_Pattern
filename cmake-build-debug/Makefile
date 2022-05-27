@@ -150,6 +150,33 @@ main1.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 .PHONY : main1.c.s
 
+object_active.o: object_active.c.o
+
+.PHONY : object_active.o
+
+# target to build an object file
+object_active.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/object_active.c.o
+.PHONY : object_active.c.o
+
+object_active.i: object_active.c.i
+
+.PHONY : object_active.i
+
+# target to preprocess a source file
+object_active.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/object_active.c.i
+.PHONY : object_active.c.i
+
+object_active.s: object_active.c.s
+
+.PHONY : object_active.s
+
+# target to generate assembly for a file
+object_active.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/object_active.c.s
+.PHONY : object_active.c.s
+
 queue.o: queue.c.o
 
 .PHONY : queue.o
@@ -189,6 +216,9 @@ help:
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
+	@echo "... object_active.o"
+	@echo "... object_active.i"
+	@echo "... object_active.s"
 	@echo "... queue.o"
 	@echo "... queue.i"
 	@echo "... queue.s"

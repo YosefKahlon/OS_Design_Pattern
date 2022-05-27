@@ -3,4 +3,4 @@ project(OS_Design_Pattern)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(OS_Design_Pattern main1.c queue.h queue.c)
+add_executable(OS_Design_Pattern main1.c queue.h queue.c object_active.h object_active.c)
