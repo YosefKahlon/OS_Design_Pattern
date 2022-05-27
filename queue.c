@@ -8,27 +8,56 @@
 #include "string.h"
 
 
-
 Queue* createQ(){
+
+
     Queue *shared_qu;
     shared_qu = (Queue *) malloc(sizeof(Queue));
     shared_qu->head = NULL;
+
+    pthread_mutex_init(&q_mutex,NULL);
+    pthread_cond_init(&con_peek,NULL);
+    pthread_cond_init(&con_dequeue,NULL);
+    pthread_cond_init(&con_enqueue,NULL);
+
     return  shared_qu;
 }
 
 void destoryQ(Queue** queue){
+
     while ((*queue)->size != 0) {
         deQ(queue);
     }
 
+
+
+    pthread_mutex_destroy(&q_mutex);
+    pthread_cond_destroy(&con_dequeue);
+    pthread_cond_destroy(&con_enqueue);
+    pthread_cond_destroy(&con_peek);
     free((*queue));
 }
 
 void enQ(Queue** queue,void* n){
-    node *new_node = (node *) malloc(sizeof(node));
-//    strcpy(new_node->data, text);
-        new_node->data = n;
 
+   pthread_mutex_lock(&q_mutex); // lock the Queue
+
+
+    while (queue_resource_counter != 0) {
+        printf("waiting on enqueue data\n");
+        pthread_cond_wait(&con_enqueue, &q_mutex);
+    }
+
+    queue_resource_counter = -2;
+
+    pthread_mutex_unlock(&q_mutex);
+    /** ~START~ Write DATA CRITICAL SECTION */
+
+
+
+    node *new_node = (node *) malloc(sizeof(node));
+
+        new_node->data = n;
 
     if ((*queue)->head == NULL) {
         (*queue)->head = new_node;
@@ -43,9 +72,38 @@ void enQ(Queue** queue,void* n){
     }
     new_node->next = NULL;
     (*queue)->size++;
+
+    /** ~END~ Write DATA CRITICAL SECTION */
+
+
+    pthread_mutex_lock(&q_mutex);
+    queue_resource_counter = 0;
+
+     //notify all other waiting threads
+    pthread_cond_broadcast(&con_peek);
+    pthread_cond_signal(&con_dequeue);
+    pthread_cond_signal(&con_enqueue);
+
+   pthread_mutex_unlock(&q_mutex); //unlock the Queue
+
+
+
+
 }
 
 void deQ(Queue**  queue){
+
+    pthread_mutex_lock(&q_mutex); // lock the Queue
+    while (queue_resource_counter != 0) {
+        printf("Waiting on DEQUEUE DATA\n");
+        pthread_cond_wait(&con_dequeue, &q_mutex);
+    }
+    queue_resource_counter = -1;
+    pthread_mutex_unlock(&q_mutex);
+
+
+    /** ~START~ Delete DATA CRITICAL SECTION */
+
     if((*queue)->size == 0){
         perror("ERROR: Stack is empty");
         return;
@@ -55,6 +113,20 @@ void deQ(Queue**  queue){
     (*queue)->head = (*queue)->head->next;
     free(top);
     (*queue)->size--;
+
+
+    /** ~END~ Delete DATA CRITICAL SECTION */
+
+    pthread_mutex_lock(&q_mutex); // lock the mutex
+
+    queue_resource_counter = 0;
+    pthread_cond_broadcast(&con_peek);
+    pthread_cond_signal(&con_dequeue);
+    pthread_cond_signal(&con_enqueue);
+
+    pthread_mutex_unlock(&q_mutex); //unlock the Queue
+
+
 }
 
 
@@ -64,31 +136,62 @@ void deQ(Queue**  queue){
 
 
 void *peek(Queue **queue){
+//    pthread_mutex_lock(&q_mutex); // lock the Queue
+//    while (queue_resource_counter < 0) {
+//        printf("Waiting On READ DATA\n");
+//        pthread_cond_wait(&con_peek, &q_mutex);
+//    }
+//    queue_resource_counter++;
+//    pthread_mutex_unlock(&q_mutex);
+//
+///** ~START~ READ DATA CRITICAL SECTION */
     if((*queue)->size == 0){
         perror("ERROR: Stack is empty");
         //return "ERROR: Stack is empty";
     }
     return (*queue)->head->data;
+
+//    pthread_mutex_lock(&q_mutex);
+//    printf("finish READER NUM: %d\n", queue_resource_counter);
+//    queue_resource_counter--;
+//    if (queue_resource_counter == 0) {
+//        pthread_cond_signal(&con_enqueue);
+//        pthread_cond_signal(&con_dequeue);
+//    }
+//    pthread_mutex_unlock(&q_mutex); //unlock the Queue
+//
+
 }
 
 void print_queue(Queue **queue) {
+//    pthread_mutex_lock(&q_mutex); // lock the Queue
+//    while (queue_resource_counter < 0) {
+//        printf("Waiting On READ DATA\n");
+//        pthread_cond_wait(&con_peek, &q_mutex);
+//    }
+//    queue_resource_counter++;
+//    pthread_mutex_unlock(&q_mutex);
+
+/** ~START~ READ DATA CRITICAL SECTION */
 
     for (node *i = (*queue)->head; i != NULL; i = i->next) {
         printf("%p --> ", (i->data));
     }
     printf("\n");
+
+
+//    pthread_mutex_lock(&q_mutex);
+//    printf("finish READER NUM: %d\n", queue_resource_counter);
+//    queue_resource_counter--;
+//    if (queue_resource_counter == 0) {
+//        pthread_cond_signal(&con_enqueue);
+//        pthread_cond_signal(&con_dequeue);
+//    }
+//    pthread_mutex_unlock(&q_mutex); //unlock the Queue
+
+
 }
 
 
-//
-//int main() {
-//
-//    Queue *queue = createQ();
-//    enQ(&queue,(void*)5);
-//
-//
-//
-//
-//    print_queue(&queue);
-//
-//}
+
+

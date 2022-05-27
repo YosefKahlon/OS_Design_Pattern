@@ -82,7 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main.c">
+		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main1.c">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c">

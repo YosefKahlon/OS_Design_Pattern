@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main1.c
+stdio.h
+-
+queue.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
+queue.c
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
+stdlib.h
+-
+pthread.h
+-
+unistd.h
+-
+
 /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
 queue.h
 /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
@@ -17,4 +31,8 @@ string.h
 /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/string.h
 
 /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
+bits/pthreadtypes.h
+-
+pthread.h
+-
 

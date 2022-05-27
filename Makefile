@@ -1,10 +1,11 @@
-CC = g++
+CC = gcc
+
+
 
 all: main1 queue.o
 
 main1: main1.o queue.h
-	$(CC) -o main main1.o
-
+	$(CC) -o main main1.o -lpthread
 
 queue: queue.o
 	$(CC) -o queue queue.o

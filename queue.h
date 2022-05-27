@@ -10,16 +10,17 @@
 
 
 
-//#include <bits/pthreadtypes.h>
-//#include <pthread.h>
 
+#include <pthread.h>
+pthread_mutex_t q_mutex;
 
 /* Queue Thread safety handlers */
-//pthread_mutex_t q_mutex = PTHREAD_MUTEX_INITIALIZER;
-//pthread_cond_t con_peek = PTHREAD_COND_INITIALIZER;
-//pthread_cond_t con_dequeue = PTHREAD_COND_INITIALIZER;
-//pthread_cond_t con_enqueue = PTHREAD_COND_INITIALIZER;
+pthread_mutex_t q_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t con_peek = PTHREAD_COND_INITIALIZER;
+pthread_cond_t con_dequeue = PTHREAD_COND_INITIALIZER;
+pthread_cond_t con_enqueue = PTHREAD_COND_INITIALIZER;
 
+int queue_resource_counter = 0;
 
 typedef struct node {
     void* data;
@@ -31,6 +32,7 @@ typedef struct Queue {
 
     node *head;
     int size;
+
 
 } Queue;
 
