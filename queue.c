@@ -4,6 +4,7 @@
 
 #include "queue.h"
 #include "stdlib.h"
+#include "unistd.h"
 #include "stdio.h"
 #include "string.h"
 
@@ -15,10 +16,8 @@ Queue *createQ() {
     shared_qu = (Queue *) malloc(sizeof(Queue));
     shared_qu->head = NULL;
 
-    pthread_mutex_init(&q_mutex, NULL);
-    pthread_cond_init(&con_peek, NULL);
-    pthread_cond_init(&con_dequeue, NULL);
-    pthread_cond_init(&con_enqueue, NULL);
+    pthread_mutex_init(&shared_qu->q_mutex, NULL);
+    pthread_cond_init(&shared_qu->con_q, NULL);
 
     return shared_qu;
 }
@@ -29,31 +28,29 @@ void destoryQ(Queue **queue) {
         deQ(queue);
     }
 
-    pthread_mutex_destroy(&q_mutex);
-    pthread_cond_destroy(&con_dequeue);
-    pthread_cond_destroy(&con_enqueue);
-    pthread_cond_destroy(&con_peek);
+    pthread_mutex_destroy(&((*queue)->q_mutex));
+    pthread_cond_destroy(&((*queue)->con_q));
+
     free((*queue));
 }
 
 void enQ(Queue **queue, void *n) {
 
-    pthread_mutex_lock(&q_mutex); // lock the Queue
+    pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter != 0) {
+    while (queue_resource_counter == Busy) {
         printf("waiting on enqueue data\n");
-        pthread_cond_wait(&con_enqueue, &q_mutex);
+        pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
 
-    queue_resource_counter = -2; //write
+    queue_resource_counter = Busy; //write
 
-
-    pthread_mutex_unlock(&q_mutex);
     /** ~START~ Write DATA CRITICAL SECTION */
-
+    printf("Starting Writing DATA\n");
+    sleep(5);
+    printf("Finish Writing DATA\n");
     node *new_node = (node *) malloc(sizeof(node));
-
     new_node->data = n;
 
     if ((*queue)->head == NULL) {
@@ -72,109 +69,63 @@ void enQ(Queue **queue, void *n) {
 
     /** ~END~ Write DATA CRITICAL SECTION */
 
+    queue_resource_counter = Free; //free to use
 
-    pthread_mutex_lock(&q_mutex);
-    queue_resource_counter = 0; //free to use
-
-    //notify all other waiting threads for read
-    pthread_cond_broadcast(&con_peek);
 
     //notify only the first that waiting to write or delete
-    pthread_cond_signal(&con_dequeue);
-    pthread_cond_signal(&con_enqueue);
 
-    pthread_mutex_unlock(&q_mutex); //unlock the Queue
+    pthread_cond_signal(&((*queue)->con_q));
+
+    pthread_mutex_unlock(&((*queue)->q_mutex)); //unlock the Queue
 
 
 
 
 }
 
-void deQ(Queue **queue) {
+void * deQ(Queue **queue) {
 
-    pthread_mutex_lock(&q_mutex); // lock the Queue
+    pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter != 0) {
+    while (queue_resource_counter == Busy) {
         printf("Waiting on DEQUEUE DATA\n");
-        pthread_cond_wait(&con_dequeue, &q_mutex);
+        pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
 
-    queue_resource_counter = -1; //delete
-    pthread_mutex_unlock(&q_mutex);
+    queue_resource_counter = Busy; //delete
+
+    printf("Delete DATA\n");
+//    pthread_mutex_unlock(&q_mutex);
 
 
     /** ~START~ Delete DATA CRITICAL SECTION */
 
     if ((*queue)->size == 0) {
         perror("ERROR: Stack is empty");
-        return;
+        return NULL;
     }
 
+    /* store pointer of the first element in the queue,
+     * passing to next section with packet */
     node *top = (*queue)->head;
+    void * packet = (*top).data;
+
     (*queue)->head = (*queue)->head->next;
     free(top);
     (*queue)->size--;
 
 
+
     /** ~END~ Delete DATA CRITICAL SECTION */
 
-    pthread_mutex_lock(&q_mutex); // lock the mutex
-
-    queue_resource_counter = 0;
-
-    //notify all other waiting threads for read
-    pthread_cond_broadcast(&con_peek);
+    queue_resource_counter = Free;
 
     //notify only the first that waiting to write or delete
-    pthread_cond_signal(&con_dequeue);
-    pthread_cond_signal(&con_enqueue);
+    pthread_cond_signal(&((*queue)->con_q));
+    pthread_mutex_unlock(&((*queue)->q_mutex));; //unlock the Queue
 
-    pthread_mutex_unlock(&q_mutex); //unlock the Queue
-
-
-}
-
-
-void *peek(Queue **queue) {
-
-
-    pthread_mutex_lock(&q_mutex); // lock the Queue
-    void *temp;
-
-    // someone is writing
-    // 0 free to use
-    while (queue_resource_counter < 0) {
-        printf("Waiting On READ DATA\n");
-        pthread_cond_wait(&con_peek, &q_mutex); //wait until wake up
-    }
-
-
-    queue_resource_counter++;
-    pthread_mutex_unlock(&q_mutex);
-
-///** ~START~ READ DATA CRITICAL SECTION */
-    if ((*queue)->size == 0) {
-        perror("ERROR: Stack is empty");
-        //return "ERROR: Stack is empty";
-    }
-    temp = (*queue)->head->data;
-
-    pthread_mutex_lock(&q_mutex);
-
-    printf("finish READER NUM: %d\n", queue_resource_counter);
-    queue_resource_counter--;
-
-
-    //signal to the first of waiting
-    if (queue_resource_counter == 0) {
-        pthread_cond_signal(&con_enqueue);
-        pthread_cond_signal(&con_dequeue);
-    }
-
-    pthread_mutex_unlock(&q_mutex); //unlock the Queue
-
-    return temp;
+    return packet;
 
 }
 

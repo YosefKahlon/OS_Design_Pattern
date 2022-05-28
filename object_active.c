@@ -6,14 +6,23 @@
 #include "stdlib.h"
 
 
+void * EXE(void * arg){
+    active_object *activeObject = (active_object*) arg;
+    while (activeObject->status == Running) {
+
+    }
+    return NULL;
+}
+
 active_object *newAO(Queue *queue, void *f1, void *f2) {
-    active_object *ao = (active_object *) malloc(sizeof(active_object));
-    ao->queue = queue;
-    ao->f1 = f1;
-    ao->f2 = f2;
-    ao->thread = (pthread_t *) malloc(sizeof(pthread_t));
-    pthread_create(ao->thread, NULL, , (void *) ao);
-    return ao;
+    active_object *active_o = (active_object *) malloc(sizeof(active_object));
+    active_o->queue = queue;
+    active_o->f1 = f1;
+    active_o->f2 = f2;
+    active_o->status = Running;
+    active_o->thread = (pthread_t *) malloc(sizeof(pthread_t));
+    pthread_create(active_o->thread, NULL, &EXE, (void *) active_o);
+    return active_o;
 }
 
 
