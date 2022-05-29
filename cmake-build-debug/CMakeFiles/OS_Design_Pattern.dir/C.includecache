@@ -6,21 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/main1.c
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main1.c
 stdio.h
 -
 queue.h
-/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/queue.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
 string.h
-/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/string.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/string.h
+queue.c
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
 stdlib.h
 -
 pthread.h
 -
 unistd.h
 -
+ctype.h
+-
 
-/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/queue.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.c
+queue.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
+stdlib.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/stdlib.h
+unistd.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/unistd.h
+stdio.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/stdio.h
+string.h
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/string.h
+
+/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/queue.h
 pthread.h
 -
 
