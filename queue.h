@@ -18,6 +18,11 @@
 enum {Free, Busy};
 int queue_resource_counter = 0;
 
+typedef struct packet{
+    int id;
+    char message[1024];
+} packet;
+
 typedef struct node {
     void* data;
     struct node *next;

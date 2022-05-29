@@ -9,7 +9,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <ctype.h>
-//#include "object_active.h"
+#include "object_active.c"
 
 
 Queue *first_q;
@@ -39,32 +39,30 @@ Queue *third_q;
 //}
 
 void *encrypt(void *data) {
-    char str[strlen(data)];// = (char *) data;
-    strcpy(str, (char *) data);
-
+    packet *pack = (packet *)data;
+//    char str[1024];// = (char *) data;
+//    strcpy(str, (char *) data);
 
     char ch;
     int key = 1;
-    for (int i = 0; str[i] != '\0'; ++i) {
-        ch = str[i];
+    for (int i = 0; pack->message[i] != '\0'; ++i) {
+        ch = pack->message[i];
         if (ch >= 'a' && ch <= 'z') {
             ch = ch + key;
             if (ch > 'z') {
                 ch = ch - 'z' + 'a' - 1;
             }
-            str[i] = ch;
+            pack->message[i] = ch;
         } else if (ch >= 'A' && ch <= 'Z') {
             ch = ch + key;
             if (ch > 'Z') {
                 ch = ch - 'Z' + 'A' - 1;
             }
-            str[i] = ch;
+            pack->message[i] = ch;
         }
     }
 
-    void *ans = str;
-
-    return ans;
+    return pack;
 }
 
 void pass_to_second(void *data) {
@@ -73,15 +71,16 @@ void pass_to_second(void *data) {
 }
 
 void *upper_lower(void *data) {
-    char str[strlen(data)];
-    strcpy(str, (char *) data);
+    packet *pack = (packet *)data;
+//    char message[1024];
+//    strcpy(message, (char *) data);
     int i = 0;
-    while (str[i] != '\0') {
-        if (str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] =   tolower(str[i]);
-        } else if (str[i] >= 'a' && str[i] <= 'z') {
+    while (pack->message[i] != '\0') {
+        if (pack->message[i] >= 'A' && pack->message[i] <= 'Z') {
+            pack->message[i] = tolower(pack->message[i]);
+        } else if (pack->message[i] >= 'a' && pack->message[i] <= 'z') {
 
-             str[i] = toupper(str[i]);
+            pack->message[i] = toupper(pack->message[i]);
         }
         else {
             printf("Bad input \n");
@@ -91,8 +90,8 @@ void *upper_lower(void *data) {
         i++;
     }
 
-    void* ans = str;
-    return ans;
+
+    return pack;
 
 
 }
@@ -102,26 +101,31 @@ void  pass_to_third(void * data) {
 
 }
 
+//
+void * validation(void * data) {
+    printf("Passed the packet %s\n", (char *) data);
+    return NULL;
+}
+
 void * send_to_client(void * data) {
-    
+    validation( data);
 
 }
-//
-//void * validation(void * data) {
-//    printf("Passed the packet %s\n", (char *) data);
-//    return NULL;
-//}
 
 int main() {
-//    first_q = createQ();
-//    second_q = createQ();
-//    third_q = createQ();
-//
-//    active_object *activeObject_encrypt = newAO(first_q, encrypt, pass_to_second);
-//    active_object *activeObject_UPPER_LOWER = newAO(second_q, upper_lower, pass_to_third);
-//    active_object *activeObject_return_to_client = newAO(third_q, send_to_client, validation);
+    first_q = createQ();
+    second_q = createQ();
+    third_q = createQ();
 
-    printf("TEST: %s\n", (char *) upper_lower("HI"));
+    active_object *activeObject_encrypt = newAO(first_q, encrypt, pass_to_second);
+    active_object *activeObject_UPPER_LOWER = newAO(second_q, upper_lower, pass_to_third);
+    active_object *activeObject_return_to_client = newAO(third_q, send_to_client, validation);
+    packet test1;
+    strcpy(test1.message, "HI");
+    packet *test = encrypt(&test1);
+    printf("TEST: %s\n", test->message);
+
+    enQ(&first_q, "HI");
 
 
 //    pthread_t thread1, thread2;

@@ -39,7 +39,7 @@ void enQ(Queue **queue, void *n) {
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter == Busy) {
+    while (queue_resource_counter == Busy || (*queue)->size == 0) {
         printf("waiting on enqueue data\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
