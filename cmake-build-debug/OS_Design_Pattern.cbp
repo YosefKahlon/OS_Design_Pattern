@@ -85,18 +85,6 @@
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/main1.c">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/object_active.c">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/object_active.h">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/queue.c">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/queue.h">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

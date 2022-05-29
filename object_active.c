@@ -1,7 +1,8 @@
 //
 // Created by 97252 on 5/27/2022.
 //
-
+#include "pthread.h"
+#include "unistd.h"
 #include "object_active.h"
 #include "stdlib.h"
 
@@ -9,7 +10,8 @@
 void * EXE(void * arg){
     active_object *activeObject = (active_object*) arg;
     while (activeObject->status == Running) {
-
+        void *data = activeObject->f1(deQ(&activeObject->queue));
+        activeObject->f2(data);
     }
     return NULL;
 }

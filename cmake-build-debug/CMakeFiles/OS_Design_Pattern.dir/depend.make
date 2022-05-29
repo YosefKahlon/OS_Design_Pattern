@@ -4,10 +4,3 @@
 CMakeFiles/OS_Design_Pattern.dir/main1.c.o: ../main1.c
 CMakeFiles/OS_Design_Pattern.dir/main1.c.o: ../queue.h
 
-CMakeFiles/OS_Design_Pattern.dir/object_active.c.o: ../object_active.c
-CMakeFiles/OS_Design_Pattern.dir/object_active.c.o: ../object_active.h
-CMakeFiles/OS_Design_Pattern.dir/object_active.c.o: ../queue.h
-
-CMakeFiles/OS_Design_Pattern.dir/queue.c.o: ../queue.c
-CMakeFiles/OS_Design_Pattern.dir/queue.c.o: ../queue.h
-

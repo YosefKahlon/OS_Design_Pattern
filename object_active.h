@@ -12,7 +12,7 @@ enum active_status{Running, Stopped};
 typedef struct  active_object{
 
     void* (*f1)(void *);
-    void* (*f2)(void *);
+    void (*f2)(void *);
     Queue *queue;
     pthread_t* thread;
     int status;

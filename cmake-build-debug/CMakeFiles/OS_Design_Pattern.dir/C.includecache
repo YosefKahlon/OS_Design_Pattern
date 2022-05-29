@@ -11,6 +11,8 @@ stdio.h
 -
 queue.h
 /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/queue.h
+string.h
+/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/string.h
 stdlib.h
 -
 pthread.h
