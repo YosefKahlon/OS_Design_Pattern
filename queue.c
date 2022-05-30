@@ -34,12 +34,12 @@ void destoryQ(Queue **queue) {
     free((*queue));
 }
 
-void enQ(Queue **queue, void *n) {
+void enQ(Queue **queue, void *n,int fd) {
 
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter == Busy || (*queue)->size == 0) {
+    while (queue_resource_counter == Busy) {
         printf("waiting on enqueue data\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
@@ -52,6 +52,7 @@ void enQ(Queue **queue, void *n) {
     printf("Finish Writing DATA\n");
     node *new_node = (node *) malloc(sizeof(node));
     new_node->data = n;
+    new_node->fd = fd;
 
     if ((*queue)->head == NULL) {
         (*queue)->head = new_node;
@@ -83,12 +84,12 @@ void enQ(Queue **queue, void *n) {
 
 }
 
-void * deQ(Queue **queue) {
+void *deQ(Queue **queue) {
 
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter == Busy) {
+    while (queue_resource_counter == Busy || (*queue)->size == 0) {
         printf("Waiting on DEQUEUE DATA\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
@@ -109,7 +110,9 @@ void * deQ(Queue **queue) {
     /* store pointer of the first element in the queue,
      * passing to next section with packet */
     node *top = (*queue)->head;
-    void * packet = (*top).data;
+    node *packet = (node *) malloc(sizeof(node));
+    packet->data = (*top).data;
+    packet->fd = (*top).fd;
 
     (*queue)->head = (*queue)->head->next;
     free(top);

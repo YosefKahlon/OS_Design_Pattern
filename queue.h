@@ -26,6 +26,7 @@ typedef struct packet{
 typedef struct node {
     void* data;
     struct node *next;
+    int fd;
 } node;
 
 
@@ -43,7 +44,7 @@ Queue* createQ();
 
 void destoryQ(Queue** queue);
 
-void enQ(Queue** queue,void* n);
+void enQ(Queue** queue,void* n,int fd);
 
 void * deQ(Queue**  queue);
 

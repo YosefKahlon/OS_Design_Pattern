@@ -2,7 +2,7 @@ CC = gcc
 
 
 
-all: main1 queue.o
+all: main1 queue.o client
 
 main1: main1.o queue.h
 	$(CC) -o main main1.o -lpthread
@@ -17,6 +17,8 @@ queue.o: queue.c queue.h
 main.o: main1.c queue.h
 	$(CC) -c main1.c
 
+client: client.c
+	$(CC) client.c -o client
 
 clean:
-	rm -f *.o main queue
+	rm -f *.o main queue client

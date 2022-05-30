@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern
+CMAKE_SOURCE_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,60 @@ OS_Design_Pattern/fast:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/build
 .PHONY : OS_Design_Pattern/fast
 
+Guard.o: Guard.cpp.o
+
+.PHONY : Guard.o
+
+# target to build an object file
+Guard.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o
+.PHONY : Guard.cpp.o
+
+Guard.i: Guard.cpp.i
+
+.PHONY : Guard.i
+
+# target to preprocess a source file
+Guard.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.i
+.PHONY : Guard.cpp.i
+
+Guard.s: Guard.cpp.s
+
+.PHONY : Guard.s
+
+# target to generate assembly for a file
+Guard.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s
+.PHONY : Guard.cpp.s
+
+client.o: client.c.o
+
+.PHONY : client.o
+
+# target to build an object file
+client.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/client.c.o
+.PHONY : client.c.o
+
+client.i: client.c.i
+
+.PHONY : client.i
+
+# target to preprocess a source file
+client.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/client.c.i
+.PHONY : client.c.i
+
+client.s: client.c.s
+
+.PHONY : client.s
+
+# target to generate assembly for a file
+client.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/client.c.s
+.PHONY : client.c.s
+
 main1.o: main1.c.o
 
 .PHONY : main1.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... OS_Design_Pattern"
+	@echo "... Guard.o"
+	@echo "... Guard.i"
+	@echo "... Guard.s"
+	@echo "... client.o"
+	@echo "... client.i"
+	@echo "... client.s"
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
