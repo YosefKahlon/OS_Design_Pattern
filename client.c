@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     printf("client: received '%s'\n",buf);
 
 
-//    dup2(c_sock,1);
+   // dup2(c_sock,1);
     while (1) {
 
         char *command = NULL;
@@ -114,10 +114,10 @@ int main(int argc, char *argv[])
             break;
         }
 
-        if (strcmp("TOP", command) == EQUAL || strcmp("PEEK", command) == EQUAL ) {
-//            printf("%s", command);
-//            printf("print client \n ");
-            /* send the TOP command to the server */
+//        if (strcmp("TOP", command) == EQUAL || strcmp("PEEK", command) == EQUAL ) {
+//           printf("%s\N", command);
+////            printf("print client \n ");
+//            /* send the TOP command to the server */
             send(c_sock, command, text_length, 0);
 
             char top[text_length];
@@ -141,14 +141,6 @@ int main(int argc, char *argv[])
                 printf("OUTPUT: %s\n", top);
             }
         }
-        else if (strcmp("POP", command) == EQUAL || strncmp("PUSH",command, 4) == EQUAL) {
-            send(c_sock, command, 1024, 0);
-        }
-        else if(strcmp("DEQUEUE", command) == EQUAL || strncmp("ENQUEUE",command, 4) == EQUAL) {
-            send(c_sock, command, 1024, 0);
-        }
-
-    }
 
     close(c_sock);
 

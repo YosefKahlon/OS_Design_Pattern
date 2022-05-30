@@ -15,12 +15,6 @@
 #define EQUAL 0
 
 
-
-
-
-
-
-
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -47,12 +41,13 @@ Queue *first_q;
 Queue *second_q;
 Queue *third_q;
 
-
 void *encrypt(void *data) {
-    node *pack = (node *)data;
-    char str[1024];// = (char *) data;
-    strcpy(str,pack->data);
+    node *pack = (node *) data;
 
+    printf("%s \n",(char *)pack->data);
+    char str[1024];// = (char *) data;
+    strcpy(str, (char *) data);
+    printf("%s ,str \n", str);
     char ch;
     int key = 1;
     for (int i = 0; str[i] != '\0'; ++i) {
@@ -73,28 +68,31 @@ void *encrypt(void *data) {
     }
 
     pack->data = str;
+
+    printf("\n\n");
     return pack;
 }
 
 void pass_to_second(void *data) {
-    node* pass = (node*)data;
-    enQ(&second_q, pass->data, pass->fd);
-
+    node *pass = (node *) data;
+    char *text = pass->data;
+    printf("%s \n", text);
+    enQ(&second_q, text, pass->fd);
+    printf("\n\n");
 }
 
 void *upper_lower(void *data) {
-    node *pack = (node *)data;
+    node *pack = (node *) data;
     char message[1024];
     strcpy(message, (char *) pack->data);
     int i = 0;
     while (message[i] != '\0') {
         if (message[i] >= 'A' && message[i] <= 'Z') {
             message[i] = tolower(message[i]);
-        } else if (message[i] >= 'a' &&message[i] <= 'z') {
+        } else if (message[i] >= 'a' && message[i] <= 'z') {
 
             message[i] = toupper(message[i]);
-        }
-        else {
+        } else {
             printf("Bad input \n");
             exit(0);
 
@@ -103,31 +101,34 @@ void *upper_lower(void *data) {
     }
 
     pack->data = message;
+    printf("\n\n");
     return pack;
 
 
 }
 
-void  pass_to_third(void * data) {
-    node* pass = (node*)data;
-    enQ(&third_q, pass->data, pass->fd);
+void pass_to_third(void *data) {
+    node *pass = (node *) data;
+    char *text = pass->data;
+    printf("%s \n", text);
+    enQ(&third_q, text, pass->fd);
+    printf("\n\n");
 
 }
 
 
-void * validation(void * data) {
+void *validation(void *data) {
     printf("Passed the packet %s\n", (char *) data);
     return NULL;
 }
 
-void * send_to_client(void * data) {
-    validation( data);
+void *send_to_client(void *data) {
 
-    node* send = (node*)data;
-    int *s =  send->fd;
-    if (send(s, send->data, strlen(send->data), 0) == -1) {
-        perror("send");
-    }
+    node *send_n = (node *) data;
+
+    if (send(send_n->fd, send_n->data, strlen(send_n->data), 0) == -1) { perror("Send"); }
+    validation(data);
+    return NULL;
 }
 
 ///////////////////////////////////////////////////
@@ -138,8 +139,6 @@ void sig_handler(int signum) {
         close(new_fd[i]);
     }
     close(sockfd);
-
-
 
 
     exit(1);
@@ -191,8 +190,10 @@ void *server_listener(void *arg) {
             exit(1);
         }
         if (r != 0) {
+            printf("%s --> \n", client_msg);
 
-            enQ(&first_q,client_msg);
+
+            enQ(&first_q,client_msg, *s);
 
 
         } else {
@@ -202,22 +203,20 @@ void *server_listener(void *arg) {
 }
 
 
-
-
 int main() {
     first_q = createQ();
     second_q = createQ();
     third_q = createQ();
+    active_object *activeObject_encrypt;
+    active_object *activeObject_UPPER_LOWER;
+    active_object *activeObject_return_to_client;
 
-    active_object *activeObject_encrypt = newAO(first_q, encrypt, pass_to_second);
-    active_object *activeObject_UPPER_LOWER = newAO(second_q, upper_lower, pass_to_third);
-    active_object *activeObject_return_to_client = newAO(third_q, send_to_client, validation);
-    packet test1;
-    strcpy(test1.message, "HI");
-    packet *test = encrypt(&test1);
-    printf("TEST: %s\n", test->message);
+    activeObject_encrypt = newAO(first_q, encrypt, pass_to_second);
+    activeObject_UPPER_LOWER = newAO(second_q, upper_lower, pass_to_third);
+    activeObject_return_to_client = newAO(third_q, send_to_client, validation);
 
-    enQ(&first_q, "HI");
+
+
 
 
     //------------------------------------ server -----------------------------------------------
@@ -297,6 +296,7 @@ int main() {
      * that will serve the current connection with the client*/
     pthread_t client_h[BACKLOG];
     unsigned long thread_num = 1;
+
 
     while (server_running) {  // main accept() loop
         sin_size = sizeof their_addr;

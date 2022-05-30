@@ -38,7 +38,6 @@ void enQ(Queue **queue, void *n,int fd) {
 
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
-
     while (queue_resource_counter == Busy) {
         printf("waiting on enqueue data\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
@@ -46,12 +45,21 @@ void enQ(Queue **queue, void *n,int fd) {
 
     queue_resource_counter = Busy; //write
 
+
+    printf("hello from push \n");
+    //   printf("\n PUSH %p  ,data \n", n);
+
+      char* c = (char*)n;
+    printf("\n PUSH %s  ,data \n", c);
+
+
     /** ~START~ Write DATA CRITICAL SECTION */
     printf("Starting Writing DATA\n");
     sleep(5);
     printf("Finish Writing DATA\n");
     node *new_node = (node *) malloc(sizeof(node));
-    new_node->data = n;
+    new_node->data = (char*)n;
+
     new_node->fd = fd;
 
     if ((*queue)->head == NULL) {
