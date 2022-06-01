@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/client.c" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/client.c.o"
   "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/main1.c" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/main1.c.o"
+  "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/poolclient.c" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/poolclient.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -204,6 +204,33 @@ main1.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 .PHONY : main1.c.s
 
+poolclient.o: poolclient.c.o
+
+.PHONY : poolclient.o
+
+# target to build an object file
+poolclient.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.o
+.PHONY : poolclient.c.o
+
+poolclient.i: poolclient.c.i
+
+.PHONY : poolclient.i
+
+# target to preprocess a source file
+poolclient.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.i
+.PHONY : poolclient.c.i
+
+poolclient.s: poolclient.c.s
+
+.PHONY : poolclient.s
+
+# target to generate assembly for a file
+poolclient.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.s
+.PHONY : poolclient.c.s
+
 singleton.o: singleton.cpp.o
 
 .PHONY : singleton.o
@@ -249,6 +276,9 @@ help:
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
+	@echo "... poolclient.o"
+	@echo "... poolclient.i"
+	@echo "... poolclient.s"
 	@echo "... singleton.o"
 	@echo "... singleton.i"
 	@echo "... singleton.s"
