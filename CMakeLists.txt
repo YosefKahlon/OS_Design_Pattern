@@ -3,4 +3,4 @@ project(OS_Design_Pattern)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(OS_Design_Pattern main1.c Guard.cpp client.c singleton.cpp Reactor.h)
+add_executable(OS_Design_Pattern main1.c Guard.cpp client.c singleton.cpp Reactor.h Reactor.c pollserver.c)
