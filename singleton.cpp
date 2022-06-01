@@ -23,13 +23,11 @@ class singleton {
 private:
     /* Here will be the instance stored. */
     static singleton *onlyInstance;
-
-
-    T templatee;
+    T parameter;
 
 
     /* Private constructor to prevent instancing. */
-    singleton(T temp);
+    singleton(T para);
 
     singleton() = default;
 
@@ -53,8 +51,8 @@ singleton<T> *singleton<T>::onlyInstance = nullptr;
 
 
 template<typename T>
-singleton<T>::singleton(T temp) {
-    templatee = temp;
+singleton<T>::singleton(T para) {
+    parameter = para;
 
 }
 
@@ -65,8 +63,8 @@ singleton<T> *singleton<T>::Instance(T sing) {
     if (onlyInstance == nullptr) {
         onlyInstance = new singleton(sing);
     }
-    sleep(2);
-    printf("this is test\n");
+    //sleep(2);
+   // printf("this is test\n");
     return onlyInstance;
 }
 
