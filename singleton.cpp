@@ -73,24 +73,23 @@ void singleton<T>::Destroy() {
     onlyInstance = nullptr;
     delete onlyInstance;
 }
-//
-//int main() {
-//    int *a;
-//
-//
-//    singleton<int *> *b;
-//    singleton<int *> *c;
-//
-//     b = singleton<int *>::Instance(a);
-//     c = singleton<int *>::Instance(a);
-//    cout << b << endl;
-//    cout << c << endl;
-//    if (b == c) {
-//        cout << "works" << endl;
-//    } else {
-//        cout << " not work" << endl;
-//    }
-//
-//}
+
+int main() {
+    int *instance;
+
+
+
+    singleton<int *> *test1;
+    singleton<int *> *test2;
+
+     test1 = singleton<int *>::Instance(instance);
+     test2 = singleton<int *>::Instance(instance);
+    cout << test1 << endl;
+    cout << test2 << endl;
+
+    test1 == test2 ?  cout << "works" << endl :  cout << " not work" << endl;
+
+
+}
 
 #endif //OS_DESIGN_PATTERN_SINGLETON_CPP
