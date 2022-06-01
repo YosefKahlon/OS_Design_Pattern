@@ -7,19 +7,15 @@
 #include "stdlib.h"
 
 
-void *EXE(void *arg) {
-    active_object *activeObject = (active_object *) arg;
+void * EXE(void * arg){
+    active_object *activeObject = (active_object*) arg;
     int counter = 1;
     while (activeObject->status == Running) {
         printf("Active object loop num -> %d\n", counter);
-        void *dequeue = deQ(&activeObject->queue);
-        if (activeObject->status == Running) {
-            void *data = activeObject->f1(dequeue);
-            activeObject->f2(data);
-        }
+        void *data = activeObject->f1(deQ(&activeObject->queue));
+        activeObject->f2(data);
         counter++;
     }
-//    free(activeObject->thread);
     return NULL;
 }
 
@@ -37,7 +33,7 @@ active_object *newAO(Queue *queue, void *f1, void *f2) {
 
 void *destroyAO(active_object *ao) {
     ao->status = Stopped;
-    destoryQ(&ao->queue);
+
     free(ao->thread);
     free(ao);
 
