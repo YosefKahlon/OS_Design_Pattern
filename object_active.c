@@ -32,6 +32,8 @@ active_object *newAO(Queue *queue, void *f1, void *f2) {
 
 
 void *destroyAO(active_object *ao) {
+    ao->status = Stopped;
+
     free(ao->thread);
     free(ao);
 

@@ -36,10 +36,15 @@
 int server_running = 1;
 int sockfd;
 int new_fd[BACKLOG];
+pthread_t client_h[BACKLOG];
 
 Queue *first_q;
 Queue *second_q;
 Queue *third_q;
+
+active_object *activeObject_encrypt;
+active_object *activeObject_UPPER_LOWER;
+active_object *activeObject_return_to_client;
 
 void *encrypt(void *data) {
     node *pack = (node *) data;
@@ -137,11 +142,30 @@ void *send_to_client(void *data) {
 ///////////////////////////////////////////////////
 
 void sig_handler(int signum) {
+    printf("enter to sig \n");
+
     server_running = 0;
+
+
     for (int i = 1; i < BACKLOG; ++i) {
         close(new_fd[i]);
+        pthread_cancel(client_h[i]);
     }
     close(sockfd);
+
+
+    destroyAO(activeObject_encrypt);
+    printf("enter to sig 2  \n");
+    destoryQ(&first_q);
+
+
+
+    destroyAO(activeObject_UPPER_LOWER);
+    destoryQ(&second_q);
+    destroyAO(activeObject_return_to_client);
+    destoryQ(&third_q);
+
+
 
 
     exit(1);
@@ -149,6 +173,8 @@ void sig_handler(int signum) {
 
 void sigchld_handler(int s) {
     (void) s; // quiet unused variable warning
+
+
 
     // waitpid() might overwrite errno, so we save and restore it:
     int saved_errno = errno;
@@ -210,9 +236,9 @@ int main() {
     first_q = createQ();
     second_q = createQ();
     third_q = createQ();
-    active_object *activeObject_encrypt;
-    active_object *activeObject_UPPER_LOWER;
-    active_object *activeObject_return_to_client;
+//    active_object *activeObject_encrypt;
+//    active_object *activeObject_UPPER_LOWER;
+//    active_object *activeObject_return_to_client;
 
     activeObject_encrypt = newAO(first_q, encrypt, pass_to_second);
     activeObject_UPPER_LOWER = newAO(second_q, upper_lower, pass_to_third);
@@ -297,7 +323,7 @@ int main() {
     /* initializing array of threads with size of 10(the max of concurrency clients).
      * also init unsigned long thread_num to be the index of each thread
      * that will serve the current connection with the client*/
-    pthread_t client_h[BACKLOG];
+
     unsigned long thread_num = 1;
 
 
