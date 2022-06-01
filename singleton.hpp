@@ -15,9 +15,15 @@ class singleton {
 private:
     static T *onlyInstance = nullptr;
 
-    ~singleton() {
-        delete this->onlyInstance;
-    }
+    singleton() = default;
+
+    ~singleton() = default;
+
+    singleton(const MySingleton &) = delete;
+
+    singleton &operator=(const MySingleton &) = delete;
+
+    
 
 public:
 
@@ -29,10 +35,10 @@ public:
 
         return *(this->onlyInstance);
     }
-    
+
     void Destroy() {
         if (this->onlyInstance != nullptr) {
-            ~singleton<>();
+            delete this->onlyInstance;
         }
 
     }
