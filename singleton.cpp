@@ -53,7 +53,6 @@ singleton<T> *singleton<T>::onlyInstance = nullptr;
 template<typename T>
 singleton<T>::singleton(T para) {
     parameter = para;
-
 }
 
 
@@ -74,24 +73,24 @@ void singleton<T>::Destroy() {
     onlyInstance = nullptr;
     delete onlyInstance;
 }
-
-int main() {
-    int *a;
-
-
-    singleton<int *> *b;
-    singleton<int *> *c;
-
-     b = singleton<int *>::Instance(a);
-     c = singleton<int *>::Instance(a);
-    cout << b << endl;
-    cout << c << endl;
-    if (b == c) {
-        cout << "works" << endl;
-    } else {
-        cout << " not work" << endl;
-    }
-
-}
+//
+//int main() {
+//    int *a;
+//
+//
+//    singleton<int *> *b;
+//    singleton<int *> *c;
+//
+//     b = singleton<int *>::Instance(a);
+//     c = singleton<int *>::Instance(a);
+//    cout << b << endl;
+//    cout << c << endl;
+//    if (b == c) {
+//        cout << "works" << endl;
+//    } else {
+//        cout << " not work" << endl;
+//    }
+//
+//}
 
 #endif //OS_DESIGN_PATTERN_SINGLETON_CPP

@@ -85,6 +85,9 @@
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Guard.cpp">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Reactor.h">
+			<Option target="OS_Design_Pattern"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/client.c">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
@@ -92,9 +95,6 @@
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/singleton.cpp">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/singleton.hpp">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/CMakeLists.txt">
