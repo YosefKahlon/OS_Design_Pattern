@@ -9,6 +9,7 @@
 #include <netdb.h>
 #include <poll.h>
 #include "Reactor.h"
+#include "Reactor.c"
 
 #define PORT "9034"   // Port we're listening on
 
@@ -102,24 +103,31 @@ void del_from_pfds(struct pollfd pfds[], int i, int *fd_count) {
 void *server_listener(void *arg) {
     int *fd = (int *) arg;
     char *buf[1024];
-    int nbytes = recv(*fd, buf, sizeof buf, 0);
+    while (1) {
 
-    if (nbytes <= 0) {
-        // Got error or connection closed by client
-        if (nbytes == 0) {
-            // Connection closed
-            printf("pollserver: socket %d hung up\n", *fd);
+        printf("ready to receive\n");
+        int nbytes = recv(*fd, buf, sizeof buf, 0);
+
+        if (nbytes <= 0) {
+            // Got error or connection closed by client
+            if (nbytes == 0) {
+                // Connection closed
+                printf("pollserver: socket %d hung up\n", *fd);
+                close(*fd);
+                break;
+            } else {
+                perror("recv");
+            }
+
+            close(*fd); // Bye!
+
         } else {
-            perror("recv");
-        }
-
-        close(*fd); // Bye!
-
-    } else {
-        // We got some good data from a client
-        // Send to everyone!
-        if (send(*fd, buf, nbytes, 0) == -1) {
-            perror("send");
+            // We got some good data from a client
+            // Send to everyone!
+            if (send(*fd, buf, nbytes, 0) == -1) {
+                perror("send");
+            }
+            printf("sended\n");
         }
     }
 }
@@ -192,7 +200,7 @@ int main(void) {
                                          remoteIP, INET6_ADDRSTRLEN),
                                newfd);
                         reactor *re = newReactor();
-                        InstallHandler(re, &server_listener, newfd);
+                        InstallHandler(re, &server_listener, &newfd);
                     }
                 }
             } // END handle data from client

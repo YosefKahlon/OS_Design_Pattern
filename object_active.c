@@ -12,7 +12,7 @@ void *EXE(void *arg) {
     active_object *activeObject = (active_object *) arg;
     int counter = 1;
     while (activeObject->status == Running) {
-        printf("Active object loop num -> %d\n", counter);
+//        printf("Active object loop num -> %d\n", counter);
         void *dequeue = deQ(&activeObject->queue);
         if (activeObject->status == Running) {
             void *data = activeObject->f1(dequeue);

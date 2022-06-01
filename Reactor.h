@@ -9,20 +9,18 @@
 #include "pthread.h"
 
 typedef struct Reactor {
-    int fd;
+    int *fd;
     pthread_t re_thread;
+    void *(*func)(void *);
 
 } reactor;
 
 void *newReactor();
 
-void InstallHandler(reactor *rexi, void *func, int fd);
+void InstallHandler(reactor *rexi, void *func, int *fd);
 
 void RemoveHandler();
 
-void add_to_pfds(struct pollfd *pfds[], int newfd, int *fd_count, int *fd_size);
-
-void del_from_pfds(struct pollfd pfds[], int i, int *fd_count);
 
 
 #endif //OS_DESIGN_PATTERN_REACTOR_H
