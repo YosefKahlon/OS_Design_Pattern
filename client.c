@@ -28,17 +28,15 @@
 #define MAXDATASIZE 100 // max number of bytes we can get at once
 
 // get sockaddr, IPv4 or IPv6:
-void *get_in_addr(struct sockaddr *sa)
-{
+void *get_in_addr(struct sockaddr *sa) {
     if (sa->sa_family == AF_INET) {
-        return &(((struct sockaddr_in*)sa)->sin_addr);
+        return &(((struct sockaddr_in *) sa)->sin_addr);
     }
 
-    return &(((struct sockaddr_in6*)sa)->sin6_addr);
+    return &(((struct sockaddr_in6 *) sa)->sin6_addr);
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 //    int desc = dup(1); // close stout
     int c_sock, numbytes;
     char buf[MAXDATASIZE];
@@ -47,7 +45,7 @@ int main(int argc, char *argv[])
     char s[INET6_ADDRSTRLEN];
 
     if (argc != 2) {
-        fprintf(stderr,"usage: client hostname\n");
+        fprintf(stderr, "usage: client hostname\n");
         exit(1);
     }
 
@@ -61,7 +59,7 @@ int main(int argc, char *argv[])
     }
 
     // loop through all the results and connect to the first we can
-    for(p = servinfo; p != NULL; p = p->ai_next) {
+    for (p = servinfo; p != NULL; p = p->ai_next) {
         if ((c_sock = socket(p->ai_family, p->ai_socktype,
                              p->ai_protocol)) == -1) {
             perror("client: socket");
@@ -82,24 +80,24 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr),
+    inet_ntop(p->ai_family, get_in_addr((struct sockaddr *) p->ai_addr),
               s, sizeof s);
     printf("client: connecting to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
 
-    if ((numbytes = recv(c_sock, buf, MAXDATASIZE - 1, 0)) == -1) {
-        perror("recv");
-        exit(1);
-    }
+//    if ((numbytes = recv(c_sock, buf, MAXDATASIZE - 1, 0)) == -1) {
+//        perror("recv");
+//        exit(1);
+//    }
 
-    buf[numbytes] = '\0';
+//    buf[numbytes] = '\0';
 
-    printf("CLIENT SOCK NUM : %d\n", c_sock);
-    printf("client: received '%s'\n",buf);
+//    printf("CLIENT SOCK NUM : %d\n", c_sock);
+//    printf("client: received '%s'\n", buf);
 
 
-   // dup2(c_sock,1);
+    // dup2(c_sock,1);
     while (1) {
 
         char *command = NULL;
@@ -110,7 +108,7 @@ int main(int argc, char *argv[])
         command[line_size - 1] = '\0';
 
 
-        if(strcmp("EXIT", command) == EQUAL) {
+        if (strcmp("EXIT", command) == EQUAL) {
             break;
         }
 
@@ -118,29 +116,29 @@ int main(int argc, char *argv[])
 //           printf("%s\N", command);
 ////            printf("print client \n ");
 //            /* send the TOP command to the server */
-            send(c_sock, command, text_length, 0);
+        send(c_sock, command, text_length, 0);
 
-            char top[text_length];
-            size_t numb;
+        char top[text_length];
+        size_t numb;
 //            dup2(desc,1);
 
-            /* receive the top stack value from server shared stack.
-             * IN CASE of empty stack -> return ERROR reply */
-            if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
-                perror("recv");
-                exit(1);
-            }
-
-
-            top[numb] = '\0';
-
-            /* check if the reply is an error or valid output (for prefix management)*/
-            if (strncmp("ERROR", top,  5) == EQUAL) {
-                printf("%s\n", top);
-            } else {
-                printf("OUTPUT: %s\n", top);
-            }
+        /* receive the top stack value from server shared stack.
+         * IN CASE of empty stack -> return ERROR reply */
+        if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
+            perror("recv");
+            exit(1);
         }
+
+
+        top[numb] = '\0';
+
+        /* check if the reply is an error or valid output (for prefix management)*/
+        if (strncmp("ERROR", top, 5) == EQUAL) {
+            printf("%s\n", top);
+        } else {
+            printf("OUTPUT: %s\n", top);
+        }
+    }
 
     close(c_sock);
 

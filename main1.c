@@ -44,10 +44,10 @@ Queue *third_q;
 void *encrypt(void *data) {
     node *pack = (node *) data;
 
-    printf("%s \n",(char *)pack->data);
+    printf("encrypting data --> %s \n",(char *)pack->data);
     char str[1024];// = (char *) data;
     strcpy(str, (char *) data);
-    printf("%s ,str \n", str);
+//    printf("%s ,str \n", str);
     char ch;
     int key = 1;
     for (int i = 0; str[i] != '\0'; ++i) {
@@ -67,7 +67,8 @@ void *encrypt(void *data) {
         }
     }
 
-    pack->data = str;
+//    pack->data = str;
+    strcpy(pack->data, str);
 
     printf("\n\n");
     return pack;
@@ -76,13 +77,14 @@ void *encrypt(void *data) {
 void pass_to_second(void *data) {
     node *pass = (node *) data;
     char *text = pass->data;
-    printf("%s \n", text);
+    printf("passing to second QUEUE the value %s \n", text);
     enQ(&second_q, text, pass->fd);
     printf("\n\n");
 }
 
 void *upper_lower(void *data) {
     node *pack = (node *) data;
+    printf("Transformin letters --> %s\n", (char*) data);
     char message[1024];
     strcpy(message, (char *) pack->data);
     int i = 0;
@@ -100,7 +102,8 @@ void *upper_lower(void *data) {
         i++;
     }
 
-    pack->data = message;
+//    pack->data = message;
+    strcpy(pack->data, message);
     printf("\n\n");
     return pack;
 
@@ -110,7 +113,7 @@ void *upper_lower(void *data) {
 void pass_to_third(void *data) {
     node *pass = (node *) data;
     char *text = pass->data;
-    printf("%s \n", text);
+    printf("passing to third QUEUE the value %s \n", text);
     enQ(&third_q, text, pass->fd);
     printf("\n\n");
 
@@ -127,8 +130,8 @@ void *send_to_client(void *data) {
     node *send_n = (node *) data;
 
     if (send(send_n->fd, send_n->data, strlen(send_n->data), 0) == -1) { perror("Send"); }
-    validation(data);
-    return NULL;
+//    validation(data);
+    return data;
 }
 
 ///////////////////////////////////////////////////
@@ -177,9 +180,9 @@ void *send_hello(void *arg) {
 void *server_listener(void *arg) {
     pthread_detach(pthread_self());
     int *s = (int *) arg;
-    if (send(*s, "Hello, world!", 13, 0) == -1) {
-        perror("send");
-    }
+//    if (send(*s, "Hello, world!", 13, 0) == -1) {
+//        perror("send");
+//    }
     char client_msg[text_length] = {0}; // '\0'
 
     while (1) {

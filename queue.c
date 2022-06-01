@@ -15,7 +15,7 @@ Queue *createQ() {
     Queue *shared_qu;
     shared_qu = (Queue *) malloc(sizeof(Queue));
     shared_qu->head = NULL;
-
+    (*shared_qu).queue_resource_counter = 0;
     pthread_mutex_init(&shared_qu->q_mutex, NULL);
     pthread_cond_init(&shared_qu->con_q, NULL);
 
@@ -38,27 +38,31 @@ void enQ(Queue **queue, void *n,int fd) {
 
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
-    while (queue_resource_counter == Busy) {
+    while ((*queue)->queue_resource_counter == Busy) {
         printf("waiting on enqueue data\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
 
-    queue_resource_counter = Busy; //write
+    (*queue)->queue_resource_counter = Busy; //write
 
 
-    printf("hello from push \n");
     //   printf("\n PUSH %p  ,data \n", n);
 
       char* c = (char*)n;
-    printf("\n PUSH %s  ,data \n", c);
+//    printf("\n PUSH %s  ,data \n", c);
+
 
 
     /** ~START~ Write DATA CRITICAL SECTION */
-    printf("Starting Writing DATA\n");
+    printf("Starting Writing DATA -> %s\n", (char *)n);
     sleep(5);
-    printf("Finish Writing DATA\n");
-    node *new_node = (node *) malloc(sizeof(node));
-    new_node->data = (char*)n;
+    node *new_node = (node *) malloc(sizeof(node) + 1);
+//    new_node->data = (char*)n;
+//    printf("str length -> %lu\n", );
+//    printf("size of -> %lu\n",sizeof *n);
+    strcpy(new_node->data,n);
+//    printf("Received data: %s\n", new_node->data);
+
 
     new_node->fd = fd;
 
@@ -75,20 +79,20 @@ void enQ(Queue **queue, void *n,int fd) {
     }
     new_node->next = NULL;
     (*queue)->size++;
+    printf("Finish Writing DATA  -> %s\n\n", (char *)n);
 
     /** ~END~ Write DATA CRITICAL SECTION */
 
-    queue_resource_counter = Free; //free to use
+    (*queue)->queue_resource_counter = Free; //free to use
 
 
     //notify only the first that waiting to write or delete
 
-    pthread_cond_signal(&((*queue)->con_q));
-
     pthread_mutex_unlock(&((*queue)->q_mutex)); //unlock the Queue
-
-
-
+    if((*queue)->size == 1) {
+        // TODO
+        pthread_cond_signal(&((*queue)->con_q));
+    }
 
 }
 
@@ -97,14 +101,14 @@ void *deQ(Queue **queue) {
     pthread_mutex_lock(&((*queue)->q_mutex)); // lock the Queue
 
 
-    while (queue_resource_counter == Busy || (*queue)->size == 0) {
+    while ((*queue)->queue_resource_counter == Busy || (*queue)->size == 0) {
         printf("Waiting on DEQUEUE DATA\n");
         pthread_cond_wait(&((*queue)->con_q), &((*queue)->q_mutex));
     }
 
-    queue_resource_counter = Busy; //delete
+    (*queue)->queue_resource_counter = Busy; //delete
 
-    printf("Delete DATA\n");
+    printf("Start DELETE Data --> %s\n", (char *)(*queue)->head);
 //    pthread_mutex_unlock(&q_mutex);
 
 
@@ -119,22 +123,25 @@ void *deQ(Queue **queue) {
      * passing to next section with packet */
     node *top = (*queue)->head;
     node *packet = (node *) malloc(sizeof(node));
-    packet->data = (*top).data;
+//    packet->data = (char *)(*top).data;
+    strcpy(packet->data, (char *)(*top).data);
     packet->fd = (*top).fd;
 
     (*queue)->head = (*queue)->head->next;
     free(top);
     (*queue)->size--;
 
+    printf("END DELETE DATA --> %s\n", packet->data);
 
 
     /** ~END~ Delete DATA CRITICAL SECTION */
 
-    queue_resource_counter = Free;
+    (*queue)->queue_resource_counter = Free;
 
     //notify only the first that waiting to write or delete
-    pthread_cond_signal(&((*queue)->con_q));
     pthread_mutex_unlock(&((*queue)->q_mutex));; //unlock the Queue
+    // ???
+    pthread_cond_broadcast(&((*queue)->con_q));
 
     return packet;
 

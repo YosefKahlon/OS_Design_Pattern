@@ -16,7 +16,7 @@
 
 /* Queue Thread safety handlers */
 enum {Free, Busy};
-int queue_resource_counter = 0;
+
 
 typedef struct packet{
     int id;
@@ -24,14 +24,14 @@ typedef struct packet{
 } packet;
 
 typedef struct node {
-    void* data;
+    char  data[1024];
     struct node *next;
     int fd;
 } node;
 
 
 typedef struct Queue {
-
+    int queue_resource_counter;
     node *head;
     int size;
     pthread_mutex_t q_mutex;
