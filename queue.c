@@ -25,8 +25,8 @@ Queue *createQ() {
 void destoryQ(Queue **queue) {
 
     (*queue)->queue_resource_counter = Free;
+    pthread_cond_signal(&(*queue)->con_q);
     while ((*queue)->size != 0) {
-        pthread_cond_signal(&(*queue)->con_q);
         deQ(queue);
         printf("%d size = \n " ,(*queue)->size);
     }

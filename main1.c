@@ -84,6 +84,7 @@ void pass_to_second(void *data) {
     char *text = pass->data;
     printf("passing to second QUEUE the value %s \n", text);
     enQ(&second_q, text, pass->fd);
+    free(pass);
     printf("\n\n");
 }
 
@@ -120,6 +121,7 @@ void pass_to_third(void *data) {
     char *text = pass->data;
     printf("passing to third QUEUE the value %s \n", text);
     enQ(&third_q, text, pass->fd);
+    free(pass);
     printf("\n\n");
 
 }
@@ -127,6 +129,7 @@ void pass_to_third(void *data) {
 
 void *validation(void *data) {
     printf("Passed the packet %s\n", (char *) data);
+    free(data);
     return NULL;
 }
 
@@ -167,7 +170,7 @@ void sig_handler(int signum) {
 
 
 
-
+//    pthread_exit(NULL);
     exit(1);
 }
 

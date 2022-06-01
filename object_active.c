@@ -8,6 +8,7 @@
 
 
 void *EXE(void *arg) {
+    pthread_detach(pthread_self());
     active_object *activeObject = (active_object *) arg;
     int counter = 1;
     while (activeObject->status == Running) {
@@ -36,7 +37,8 @@ active_object *newAO(Queue *queue, void *f1, void *f2) {
 
 void *destroyAO(active_object *ao) {
     ao->status = Stopped;
-    free(ao->queue);
+    pthread_cancel(*(ao->thread));
+    destoryQ(&(ao->queue));
     free(ao->thread);
     free(ao);
 
