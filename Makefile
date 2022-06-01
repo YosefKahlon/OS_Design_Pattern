@@ -21,6 +21,8 @@ main.o: main1.c queue.h
 client: client.c
 	$(CC) client.c -o client
 
+singleton: singleton.cpp Guard.cpp
+	$(CZZ) -o singelton singelton.o -lpthread
 
 pollclient: poolclient.o
 	$(CC) pollclient.c -o pollclient
