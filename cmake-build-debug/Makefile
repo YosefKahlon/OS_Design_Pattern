@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern
+CMAKE_SOURCE_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ Guard.cpp.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s
 .PHONY : Guard.cpp.s
 
+Reactor.o: Reactor.c.o
+
+.PHONY : Reactor.o
+
+# target to build an object file
+Reactor.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o
+.PHONY : Reactor.c.o
+
+Reactor.i: Reactor.c.i
+
+.PHONY : Reactor.i
+
+# target to preprocess a source file
+Reactor.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.i
+.PHONY : Reactor.c.i
+
+Reactor.s: Reactor.c.s
+
+.PHONY : Reactor.s
+
+# target to generate assembly for a file
+Reactor.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.s
+.PHONY : Reactor.c.s
+
 client.o: client.c.o
 
 .PHONY : client.o
@@ -204,32 +231,32 @@ main1.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 .PHONY : main1.c.s
 
-poolclient.o: poolclient.c.o
+pollserver.o: pollserver.c.o
 
-.PHONY : poolclient.o
+.PHONY : pollserver.o
 
 # target to build an object file
-poolclient.c.o:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.o
-.PHONY : poolclient.c.o
+pollserver.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o
+.PHONY : pollserver.c.o
 
-poolclient.i: poolclient.c.i
+pollserver.i: pollserver.c.i
 
-.PHONY : poolclient.i
+.PHONY : pollserver.i
 
 # target to preprocess a source file
-poolclient.c.i:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.i
-.PHONY : poolclient.c.i
+pollserver.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.i
+.PHONY : pollserver.c.i
 
-poolclient.s: poolclient.c.s
+pollserver.s: pollserver.c.s
 
-.PHONY : poolclient.s
+.PHONY : pollserver.s
 
 # target to generate assembly for a file
-poolclient.c.s:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/poolclient.c.s
-.PHONY : poolclient.c.s
+pollserver.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.s
+.PHONY : pollserver.c.s
 
 singleton.o: singleton.cpp.o
 
@@ -270,15 +297,18 @@ help:
 	@echo "... Guard.o"
 	@echo "... Guard.i"
 	@echo "... Guard.s"
+	@echo "... Reactor.o"
+	@echo "... Reactor.i"
+	@echo "... Reactor.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
-	@echo "... poolclient.o"
-	@echo "... poolclient.i"
-	@echo "... poolclient.s"
+	@echo "... pollserver.o"
+	@echo "... pollserver.i"
+	@echo "... pollserver.s"
 	@echo "... singleton.o"
 	@echo "... singleton.i"
 	@echo "... singleton.s"

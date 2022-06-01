@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o"
+  "CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o"
   "CMakeFiles/OS_Design_Pattern.dir/client.c.o"
   "CMakeFiles/OS_Design_Pattern.dir/main1.c.o"
-  "CMakeFiles/OS_Design_Pattern.dir/poolclient.c.o"
+  "CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o"
   "CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.o"
   "OS_Design_Pattern"
   "OS_Design_Pattern.pdb"
