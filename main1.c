@@ -156,14 +156,14 @@ void sig_handler(int signum) {
 
     destroyAO(activeObject_encrypt);
     printf("enter to sig 2  \n");
-    destoryQ(&first_q);
+
 
 
 
     destroyAO(activeObject_UPPER_LOWER);
-    destoryQ(&second_q);
+//    destoryQ(&second_q);
     destroyAO(activeObject_return_to_client);
-    destoryQ(&third_q);
+//    destoryQ(&third_q);
 
 
 
