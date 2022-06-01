@@ -8,6 +8,13 @@ all: main1 queue.o client singleton pollserver pollclient library.so Reactor.o
 main1: main1.o queue.h
 	$(CC) -o main main1.o -lpthread
 
+Reactor: Reactor.o
+	$(CC) -o Reactor Reactor.o
+
+Reactor.o: Reactor.c Reactor.h
+	$(CC) -c Reactor.c
+
+
 queue: queue.o
 	$(CC) -o queue queue.o
 
@@ -32,6 +39,7 @@ pollclient: poolclient.o
 
 pollclient: poolserver.o Reactor.h
 	$(CC) pollserver.c -o pollserver -lpthread
+
 
 
 clean:
