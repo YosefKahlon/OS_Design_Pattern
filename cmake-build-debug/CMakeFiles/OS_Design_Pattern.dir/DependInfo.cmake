@@ -15,6 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/Guard.cpp" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o"
+  "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/singleton.cpp" "/mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

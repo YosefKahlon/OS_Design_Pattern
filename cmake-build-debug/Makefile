@@ -204,6 +204,33 @@ main1.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 .PHONY : main1.c.s
 
+singleton.o: singleton.cpp.o
+
+.PHONY : singleton.o
+
+# target to build an object file
+singleton.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.o
+.PHONY : singleton.cpp.o
+
+singleton.i: singleton.cpp.i
+
+.PHONY : singleton.i
+
+# target to preprocess a source file
+singleton.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.i
+.PHONY : singleton.cpp.i
+
+singleton.s: singleton.cpp.s
+
+.PHONY : singleton.s
+
+# target to generate assembly for a file
+singleton.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.s
+.PHONY : singleton.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
+	@echo "... singleton.o"
+	@echo "... singleton.i"
+	@echo "... singleton.s"
 .PHONY : help
 
 
