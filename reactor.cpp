@@ -2,7 +2,7 @@
 // Created by barak on 01/06/2022.
 //
 
-#include "Reactor.h"
+#include "reactor.hpp"
 #include "stdlib.h"
 
 
@@ -12,10 +12,11 @@ void * newReactor() {
     return re;
 }
 
-void InstallHandler(reactor * rexi, void *func , int *fd) {
+void InstallHandler(reactor * rexi, void *(*func)(void *) , int fd) {
+
     rexi->fd = fd;
     rexi->func = func;
-    pthread_create(&rexi->re_thread, NULL, rexi->func, (void *)fd);
+    pthread_create(&rexi->re_thread, NULL, rexi->func, (void *)rexi);
 
 }
 

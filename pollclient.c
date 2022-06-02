@@ -101,39 +101,39 @@ int main(int argc, char *argv[]) {
 
     // dup2(c_sock,1);
     while (1) {
+        if (fork() == 0) {
+            char *command = NULL;
+            size_t size = 0;
 
-        char *command = NULL;
-        size_t size = 0;
-
-        //s-size_t type to be able to receive value -1 // size of the input  line
-        ssize_t line_size = getline(&command, &size, stdin);
-        command[line_size - 1] = '\0';
+            //s-size_t type to be able to receive value -1 // size of the input  line
+            ssize_t line_size = getline(&command, &size, stdin);
+            command[line_size - 1] = '\0';
 
 
 
 
 //            /* send the TOP command to the server */
-        send(c_sock, command, text_length, 0);
-
-        char top[text_length];
-        size_t numb;
+            send(c_sock, command, text_length, 0);
 
 
+        } else {
 
-
-        if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
-            perror("recv");
-            if(numb == 0) {
-                break;
+            char top[text_length];
+            size_t numb;
+            if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
+                perror("recv");
+                if (numb == 0) {
+                    break;
+                }
+                exit(1);
             }
-            exit(1);
+
+
+            top[numb] = '\0';
+            printf("%s \n", top);
+
+
         }
-
-
-        top[numb] = '\0';
-        printf("%s \n",top);
-
-
     }
 
     close(c_sock);

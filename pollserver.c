@@ -8,15 +8,16 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <poll.h>
-#include "Reactor.h"
-#include "Reactor.c"
+#include "reactor.hpp"
+#include "reactor.cpp"
+//#include "guard.cpp"
 
 #define PORT "9034"   // Port we're listening on
 
 int fd_count;
 int fd_size;
 struct pollfd *pfds;
-
+int listener;     // Listening socket descriptor
 
 // Get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa) {
@@ -79,6 +80,7 @@ int get_listener_socket(void) {
 
 // Add a new file descriptor to the set
 void add_to_pfds(struct pollfd *pfds[], int newfd, int *fd_count, int *fd_size) {
+//    Guard(lock2);
     // If we don't have room, add more space in the pfds array
     if (*fd_count == *fd_size) {
         *fd_size *= 2; // Double it
@@ -95,38 +97,56 @@ void add_to_pfds(struct pollfd *pfds[], int newfd, int *fd_count, int *fd_size) 
 // Remove an index from the set
 void del_from_pfds(struct pollfd pfds[], int i, int *fd_count) {
     // Copy the one from the end over this one
+//    Guard(lock2);
     pfds[i] = pfds[*fd_count - 1];
 
     (*fd_count)--;
 }
 
 void *server_listener(void *arg) {
-    int *fd = (int *) arg;
-    char *buf[1024];
+    pthread_detach(pthread_self());
+    reactor *rexi = (reactor *) arg;
+//    int *fd = (int *) rexi->fd;
+//    int new_fd = *fd;
+    char buf[1024];
     while (1) {
 
         printf("ready to receive\n");
-        int nbytes = recv(*fd, buf, sizeof buf, 0);
+        int nbytes = recv(rexi->fd, buf, sizeof buf, 0);
 
         if (nbytes <= 0) {
             // Got error or connection closed by client
             if (nbytes == 0) {
                 // Connection closed
-                printf("pollserver: socket %d hung up\n", *fd);
-                close(*fd);
-                break;
+                printf("pollserver: socket %d hung up\n", rexi->fd);
             } else {
                 perror("recv");
             }
 
-            close(*fd); // Bye!
-
+            close(rexi->fd); // Bye!
+            for (int i = 0; i < fd_count; ++i) {
+                if (pfds[i].fd == rexi->fd) {
+                    del_from_pfds(pfds, i, &fd_count);
+                    break;
+                }
+            }
+            break;
         } else {
             // We got some good data from a client
             // Send to everyone!
-            if (send(*fd, buf, nbytes, 0) == -1) {
-                perror("send");
+            for (int i = 0; i < fd_count; ++i) {
+                int dest_fd = pfds[i].fd;
+                if (dest_fd != listener && dest_fd != rexi->fd) {
+                    if (send(dest_fd, buf, nbytes, 0) == -1) {
+                        perror("send");
+                    }
+                }
             }
+//            buf[strlen(buf)] = '\n';
+//            if (send(rexi->fd, buf, nbytes, 0) == -1) {
+//                perror("send");
+//            }
+            memset(buf,0,sizeof (buf));
             printf("sended\n");
         }
     }
@@ -135,7 +155,7 @@ void *server_listener(void *arg) {
 
 // Main
 int main(void) {
-    int listener;     // Listening socket descriptor
+
 
     int newfd;        // Newly accept()ed socket descriptor
     struct sockaddr_storage remoteaddr; // Client address
@@ -198,9 +218,11 @@ int main(void) {
                                inet_ntop(remoteaddr.ss_family,
                                          get_in_addr((struct sockaddr *) &remoteaddr),
                                          remoteIP, INET6_ADDRSTRLEN),
+
                                newfd);
+                        printf("FD is: %d\n", newfd);
                         reactor *re = newReactor();
-                        InstallHandler(re, &server_listener, &newfd);
+                        InstallHandler(re, &server_listener, newfd);
                     }
                 }
             } // END handle data from client

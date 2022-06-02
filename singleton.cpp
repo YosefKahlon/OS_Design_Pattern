@@ -10,7 +10,7 @@
 #include <unistd.h>
 
 #include <pthread.h>
-#include "Guard.cpp"
+#include "guard.cpp"
 
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 

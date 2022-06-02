@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern
+CMAKE_SOURCE_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/97252/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -231,6 +231,33 @@ main1.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 .PHONY : main1.c.s
 
+pollclient.o: pollclient.c.o
+
+.PHONY : pollclient.o
+
+# target to build an object file
+pollclient.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o
+.PHONY : pollclient.c.o
+
+pollclient.i: pollclient.c.i
+
+.PHONY : pollclient.i
+
+# target to preprocess a source file
+pollclient.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollclient.c.i
+.PHONY : pollclient.c.i
+
+pollclient.s: pollclient.c.s
+
+.PHONY : pollclient.s
+
+# target to generate assembly for a file
+pollclient.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollclient.c.s
+.PHONY : pollclient.c.s
+
 pollserver.o: pollserver.c.o
 
 .PHONY : pollserver.o
@@ -306,6 +333,9 @@ help:
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
+	@echo "... pollclient.o"
+	@echo "... pollclient.i"
+	@echo "... pollclient.s"
 	@echo "... pollserver.o"
 	@echo "... pollserver.i"
 	@echo "... pollserver.s"
