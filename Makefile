@@ -1,6 +1,5 @@
 CC = gcc
 CZZ = g++
-#OBJ=active_object.o guard.o reactor.o queue.o
 
 
 all: main1 queue.o client singleton pollserver pollclient Reactor.o object_active.o singleton.o library.so
@@ -8,8 +7,8 @@ all: main1 queue.o client singleton pollserver pollclient Reactor.o object_activ
 main1: main1.o queue.h
 	$(CC) -o main main1.o -lpthread
 
-pollserver: pollserver.c reactor.hpp
-	$(CC) pollserver.c -o pollserver -lpthread
+pollserver: pollserver.cpp reactor.hpp
+	$(CZZ) pollserver.cpp -o pollserver -lpthread
 
 Reactor: Reactor.o
 	$(CC) -o Reactor Reactor.o

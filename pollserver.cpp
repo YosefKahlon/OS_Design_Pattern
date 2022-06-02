@@ -85,7 +85,7 @@ void add_to_pfds(struct pollfd *pfds[], int newfd, int *fd_count, int *fd_size) 
     if (*fd_count == *fd_size) {
         *fd_size *= 2; // Double it
 
-        *pfds = realloc(*pfds, sizeof(**pfds) * (*fd_size));
+        *pfds = (struct pollfd *)realloc(*pfds, sizeof(**pfds) * (*fd_size));
     }
 
     (*pfds)[*fd_count].fd = newfd;
@@ -150,6 +150,7 @@ void *server_listener(void *arg) {
             printf("sended\n");
         }
     }
+    return NULL;
 }
 
 
@@ -169,7 +170,7 @@ int main(void) {
     // (We'll realloc as necessary)
     fd_count = 0;
     fd_size = 5;
-    pfds = malloc(sizeof *pfds * fd_size);
+    pfds = (struct pollfd *)malloc(sizeof *pfds * fd_size);
 
     // Set up and get a listening socket
     listener = get_listener_socket();
@@ -221,7 +222,7 @@ int main(void) {
 
                                newfd);
                         printf("FD is: %d\n", newfd);
-                        reactor *re = newReactor();
+                        reactor *re = (reactor *)newReactor();
                         InstallHandler(re, &server_listener, newfd);
                     }
                 }

@@ -24,6 +24,7 @@
 #include "assert.h"
 
 #include <arpa/inet.h>
+#include <signal.h>
 
 #define PORT "9034" // the port client will be connecting to
 
@@ -101,6 +102,7 @@ int main(int argc, char *argv[]) {
 
     // dup2(c_sock,1);
     while (1) {
+
         if (fork() == 0) {
             char *command = NULL;
             size_t size = 0;
@@ -117,7 +119,6 @@ int main(int argc, char *argv[]) {
 
 
         } else {
-
             char top[text_length];
             size_t numb;
             if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
@@ -125,6 +126,7 @@ int main(int argc, char *argv[]) {
                 if (numb == 0) {
                     break;
                 }
+
                 exit(1);
             }
 
@@ -135,7 +137,7 @@ int main(int argc, char *argv[]) {
 
         }
     }
-
+    printf("closed connetction\n");
     close(c_sock);
 
     return 0;
