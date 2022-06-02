@@ -89,21 +89,11 @@ int main(int argc, char *argv[]) {
 
     freeaddrinfo(servinfo); // all done with this structure
 
-//    if ((numbytes = recv(c_sock, buf, MAXDATASIZE - 1, 0)) == -1) {
-//        perror("recv");
-//        exit(1);
-//    }
-
-//    buf[numbytes] = '\0';
-
-//    printf("CLIENT SOCK NUM : %d\n", c_sock);
-//    printf("client: received '%s'\n", buf);
-
 
     // dup2(c_sock,1);
     while (1) {
 
-        if (fork() == 0) {
+        if (fork() != 0) {
             char *command = NULL;
             size_t size = 0;
 
@@ -114,7 +104,7 @@ int main(int argc, char *argv[]) {
 
 
 
-//            /* send the TOP command to the server */
+
             send(c_sock, command, text_length, 0);
 
 
@@ -124,6 +114,7 @@ int main(int argc, char *argv[]) {
             if ((numb = recv(c_sock, top, text_length, 0)) == -1) {
                 perror("recv");
                 if (numb == 0) {
+//                    kill(getppid(),SIGKILL);
                     break;
                 }
 
@@ -137,7 +128,7 @@ int main(int argc, char *argv[]) {
 
         }
     }
-    printf("closed connetction\n");
+    printf("closed connection\n");
     close(c_sock);
 
     return 0;

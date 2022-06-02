@@ -123,59 +123,32 @@ OS_Design_Pattern/fast:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/build
 .PHONY : OS_Design_Pattern/fast
 
-Guard.o: Guard.cpp.o
+Active_Object_Test.o: Active_Object_Test.c.o
 
-.PHONY : Guard.o
-
-# target to build an object file
-Guard.cpp.o:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o
-.PHONY : Guard.cpp.o
-
-Guard.i: Guard.cpp.i
-
-.PHONY : Guard.i
-
-# target to preprocess a source file
-Guard.cpp.i:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.i
-.PHONY : Guard.cpp.i
-
-Guard.s: Guard.cpp.s
-
-.PHONY : Guard.s
-
-# target to generate assembly for a file
-Guard.cpp.s:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s
-.PHONY : Guard.cpp.s
-
-Reactor.o: Reactor.c.o
-
-.PHONY : Reactor.o
+.PHONY : Active_Object_Test.o
 
 # target to build an object file
-Reactor.c.o:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o
-.PHONY : Reactor.c.o
+Active_Object_Test.c.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o
+.PHONY : Active_Object_Test.c.o
 
-Reactor.i: Reactor.c.i
+Active_Object_Test.i: Active_Object_Test.c.i
 
-.PHONY : Reactor.i
+.PHONY : Active_Object_Test.i
 
 # target to preprocess a source file
-Reactor.c.i:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.i
-.PHONY : Reactor.c.i
+Active_Object_Test.c.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.i
+.PHONY : Active_Object_Test.c.i
 
-Reactor.s: Reactor.c.s
+Active_Object_Test.s: Active_Object_Test.c.s
 
-.PHONY : Reactor.s
+.PHONY : Active_Object_Test.s
 
 # target to generate assembly for a file
-Reactor.c.s:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Reactor.c.s
-.PHONY : Reactor.c.s
+Active_Object_Test.c.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.s
+.PHONY : Active_Object_Test.c.s
 
 client.o: client.c.o
 
@@ -203,6 +176,33 @@ client.s: client.c.s
 client.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/client.c.s
 .PHONY : client.c.s
+
+guard.o: guard.cpp.o
+
+.PHONY : guard.o
+
+# target to build an object file
+guard.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o
+.PHONY : guard.cpp.o
+
+guard.i: guard.cpp.i
+
+.PHONY : guard.i
+
+# target to preprocess a source file
+guard.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/guard.cpp.i
+.PHONY : guard.cpp.i
+
+guard.s: guard.cpp.s
+
+.PHONY : guard.s
+
+# target to generate assembly for a file
+guard.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/guard.cpp.s
+.PHONY : guard.cpp.s
 
 main1.o: main1.c.o
 
@@ -258,32 +258,59 @@ pollclient.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollclient.c.s
 .PHONY : pollclient.c.s
 
-pollserver.o: pollserver.c.o
+pollserver.o: pollserver.cpp.o
 
 .PHONY : pollserver.o
 
 # target to build an object file
-pollserver.c.o:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o
-.PHONY : pollserver.c.o
+pollserver.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o
+.PHONY : pollserver.cpp.o
 
-pollserver.i: pollserver.c.i
+pollserver.i: pollserver.cpp.i
 
 .PHONY : pollserver.i
 
 # target to preprocess a source file
-pollserver.c.i:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.i
-.PHONY : pollserver.c.i
+pollserver.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.i
+.PHONY : pollserver.cpp.i
 
-pollserver.s: pollserver.c.s
+pollserver.s: pollserver.cpp.s
 
 .PHONY : pollserver.s
 
 # target to generate assembly for a file
-pollserver.c.s:
-	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.c.s
-.PHONY : pollserver.c.s
+pollserver.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.s
+.PHONY : pollserver.cpp.s
+
+reactor.o: reactor.cpp.o
+
+.PHONY : reactor.o
+
+# target to build an object file
+reactor.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o
+.PHONY : reactor.cpp.o
+
+reactor.i: reactor.cpp.i
+
+.PHONY : reactor.i
+
+# target to preprocess a source file
+reactor.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.i
+.PHONY : reactor.cpp.i
+
+reactor.s: reactor.cpp.s
+
+.PHONY : reactor.s
+
+# target to generate assembly for a file
+reactor.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.s
+.PHONY : reactor.cpp.s
 
 singleton.o: singleton.cpp.o
 
@@ -321,15 +348,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... OS_Design_Pattern"
-	@echo "... Guard.o"
-	@echo "... Guard.i"
-	@echo "... Guard.s"
-	@echo "... Reactor.o"
-	@echo "... Reactor.i"
-	@echo "... Reactor.s"
+	@echo "... Active_Object_Test.o"
+	@echo "... Active_Object_Test.i"
+	@echo "... Active_Object_Test.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"
+	@echo "... guard.o"
+	@echo "... guard.i"
+	@echo "... guard.s"
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"
@@ -339,6 +366,9 @@ help:
 	@echo "... pollserver.o"
 	@echo "... pollserver.i"
 	@echo "... pollserver.s"
+	@echo "... reactor.o"
+	@echo "... reactor.i"
+	@echo "... reactor.s"
 	@echo "... singleton.o"
 	@echo "... singleton.i"
 	@echo "... singleton.s"

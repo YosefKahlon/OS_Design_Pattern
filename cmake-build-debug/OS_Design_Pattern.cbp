@@ -82,16 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Guard.cpp">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Reactor.c">
-			<Option target="OS_Design_Pattern"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Reactor.h">
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Active_Object_Test.c">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/client.c">
+			<Option target="OS_Design_Pattern"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/guard.cpp">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/main1.c">
@@ -100,7 +97,13 @@
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollclient.c">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.c">
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.cpp">
+			<Option target="OS_Design_Pattern"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/reactor.cpp">
+			<Option target="OS_Design_Pattern"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/reactor.hpp">
 			<Option target="OS_Design_Pattern"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/singleton.cpp">

@@ -70,18 +70,18 @@ CMakeFiles/OS_Design_Pattern.dir/main1.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/main1.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/main1.c -o CMakeFiles/OS_Design_Pattern.dir/main1.c.s
 
-CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
-CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o: ../Guard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Guard.cpp
+CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o: ../guard.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/guard.cpp
 
-CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Guard.cpp > CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.i
+CMakeFiles/OS_Design_Pattern.dir/guard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/guard.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/guard.cpp > CMakeFiles/OS_Design_Pattern.dir/guard.cpp.i
 
-CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Guard.cpp -o CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.s
+CMakeFiles/OS_Design_Pattern.dir/guard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/guard.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/guard.cpp -o CMakeFiles/OS_Design_Pattern.dir/guard.cpp.s
 
 CMakeFiles/OS_Design_Pattern.dir/client.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
 CMakeFiles/OS_Design_Pattern.dir/client.c.o: ../client.c
@@ -109,31 +109,31 @@ CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/singleton.cpp -o CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.s
 
-CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
-CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o: ../Reactor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o   -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Reactor.c
+CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o: ../reactor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/reactor.cpp
 
-CMakeFiles/OS_Design_Pattern.dir/Reactor.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_Design_Pattern.dir/Reactor.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Reactor.c > CMakeFiles/OS_Design_Pattern.dir/Reactor.c.i
+CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/reactor.cpp > CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.i
 
-CMakeFiles/OS_Design_Pattern.dir/Reactor.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/Reactor.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Reactor.c -o CMakeFiles/OS_Design_Pattern.dir/Reactor.c.s
+CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/reactor.cpp -o CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.s
 
-CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
-CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o: ../pollserver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o   -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.c
+CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o: ../pollserver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.cpp
 
-CMakeFiles/OS_Design_Pattern.dir/pollserver.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_Design_Pattern.dir/pollserver.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.c > CMakeFiles/OS_Design_Pattern.dir/pollserver.c.i
+CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.cpp > CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.i
 
-CMakeFiles/OS_Design_Pattern.dir/pollserver.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/pollserver.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.c -o CMakeFiles/OS_Design_Pattern.dir/pollserver.c.s
+CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollserver.cpp -o CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.s
 
 CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
 CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o: ../pollclient.c
@@ -148,29 +148,44 @@ CMakeFiles/OS_Design_Pattern.dir/pollclient.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/pollclient.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/pollclient.c -o CMakeFiles/OS_Design_Pattern.dir/pollclient.c.s
 
+CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o: CMakeFiles/OS_Design_Pattern.dir/flags.make
+CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o: ../Active_Object_Test.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o   -c /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Active_Object_Test.c
+
+CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Active_Object_Test.c > CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.i
+
+CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/Active_Object_Test.c -o CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.s
+
 # Object files for target OS_Design_Pattern
 OS_Design_Pattern_OBJECTS = \
 "CMakeFiles/OS_Design_Pattern.dir/main1.c.o" \
-"CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o" \
+"CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o" \
 "CMakeFiles/OS_Design_Pattern.dir/client.c.o" \
 "CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.o" \
-"CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o" \
-"CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o" \
-"CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o"
+"CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o" \
+"CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o" \
+"CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o" \
+"CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o"
 
 # External object files for target OS_Design_Pattern
 OS_Design_Pattern_EXTERNAL_OBJECTS =
 
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/main1.c.o
-OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/Guard.cpp.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/client.c.o
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/singleton.cpp.o
-OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/Reactor.c.o
-OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/pollserver.c.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/reactor.cpp.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/pollserver.cpp.o
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/pollclient.c.o
+OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/build.make
 OS_Design_Pattern: CMakeFiles/OS_Design_Pattern.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable OS_Design_Pattern"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/barak/Documents/GitHub/OS_Design_Pattern/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable OS_Design_Pattern"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OS_Design_Pattern.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

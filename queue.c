@@ -58,7 +58,6 @@ void enQ(Queue **queue, void *n,int fd) {
 
     /** ~START~ Write DATA CRITICAL SECTION */
     printf("Starting Writing DATA -> %s\n", (char *)n);
-    sleep(5);
     node *new_node = (node *) malloc(sizeof(node) + 1);
 //    new_node->data = (char*)n;
 //    printf("str length -> %lu\n", );
