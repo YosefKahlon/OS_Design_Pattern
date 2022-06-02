@@ -33,7 +33,6 @@ singleton: singleton.o guard.cpp
 	$(CZZ) -o singelton singleton.o -lpthread
 
 
-
 pollclient: pollclient.o
 	$(CC) pollclient.c -o pollclient
 
@@ -54,4 +53,4 @@ guard.o: guard.cpp
 
 
 clean:
-	rm -f *.o main queue client pollclient pollserver
+	rm -f *.o main queue client pollclient pollserver singleton
