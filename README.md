@@ -76,7 +76,7 @@ The singleton design pattern restricts the instantiation of a class to a single 
 
 ### Reactor 
 
-The server will create a chat between all the client that connect to the server. 
+The server will create a chat between all the clients connected to the server. 
 
 - newReactor - create new Reactor .
 - InstallHandler -will get a pointer to Reactor, a pointer to a function and a file descriptor - will install a function that will handle the input only on the file descriptor.
