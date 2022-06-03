@@ -22,7 +22,7 @@ This project represent some Designs Pattern (Active-object, Pipeline, Guard, Sin
 
     ./main
     ./client localhost
-        write to serve text to encrypt
+        
 
 </div>
 
@@ -40,19 +40,20 @@ The active object handle few client, by adding to the queue the num of the file 
 
 The action : 
 
-1. client want to encrypt text
+1. client is writing  text to encrypt
 2. enQ to first queue
 3. encrypt the text
-4. push to second queue to convert the latter (upper --> lower || lower -->upper)
+4. push to second queue to convert the latter (upper --> lower || lower --> upper)
 5. push to treed queue 
-6. return to client the text 
+6. server return to the client the encrypted text
 
 #### Test 
 
 <div dir='ltr'>
 
     ./main
-    ./test
+    ./activeTest localhost
+t
 
 </div>
 
@@ -61,7 +62,7 @@ The action :
 This Pattern is An app that allows only one thread to enter a function that updates a global pointer .
 
 ###Singleton 
-The singleton design pattern restricts the instantiation of a class to a single instance
+The singleton design pattern restricts the instantiation of a class to a single instance .
 
 - Instance -  returns a pointer to the singleton .
 - Destroy - Destroy the singleton .
