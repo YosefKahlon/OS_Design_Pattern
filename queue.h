@@ -18,10 +18,10 @@
 enum {Free, Busy};
 
 
-typedef struct packet{
-    int id;
-    char message[1024];
-} packet;
+//typedef struct packet{
+//    int id;
+//    char message[1024];
+//} packet;
 
 typedef struct node {
     char  data[1024];
