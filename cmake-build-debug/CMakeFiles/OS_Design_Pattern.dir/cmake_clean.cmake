@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.o"
+  "CMakeFiles/OS_Design_Pattern.dir/Guard_Test.cpp.o"
   "CMakeFiles/OS_Design_Pattern.dir/client.c.o"
   "CMakeFiles/OS_Design_Pattern.dir/guard.cpp.o"
   "CMakeFiles/OS_Design_Pattern.dir/main1.c.o"

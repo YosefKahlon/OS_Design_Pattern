@@ -150,6 +150,33 @@ Active_Object_Test.c.s:
 	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Active_Object_Test.c.s
 .PHONY : Active_Object_Test.c.s
 
+Guard_Test.o: Guard_Test.cpp.o
+
+.PHONY : Guard_Test.o
+
+# target to build an object file
+Guard_Test.cpp.o:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard_Test.cpp.o
+.PHONY : Guard_Test.cpp.o
+
+Guard_Test.i: Guard_Test.cpp.i
+
+.PHONY : Guard_Test.i
+
+# target to preprocess a source file
+Guard_Test.cpp.i:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard_Test.cpp.i
+.PHONY : Guard_Test.cpp.i
+
+Guard_Test.s: Guard_Test.cpp.s
+
+.PHONY : Guard_Test.s
+
+# target to generate assembly for a file
+Guard_Test.cpp.s:
+	$(MAKE) -f CMakeFiles/OS_Design_Pattern.dir/build.make CMakeFiles/OS_Design_Pattern.dir/Guard_Test.cpp.s
+.PHONY : Guard_Test.cpp.s
+
 client.o: client.c.o
 
 .PHONY : client.o
@@ -351,6 +378,9 @@ help:
 	@echo "... Active_Object_Test.o"
 	@echo "... Active_Object_Test.i"
 	@echo "... Active_Object_Test.s"
+	@echo "... Guard_Test.o"
+	@echo "... Guard_Test.i"
+	@echo "... Guard_Test.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

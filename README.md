@@ -36,15 +36,15 @@ This pattern using a thread safe queue
 - deQ - delete the first from the queue.
 
 
-The active object handle few client, by adding to the queue the num of the file descriptor of the client.
+The active object handle multiple client, by adding to the queue the num of the file descriptor of the client.
 
 The action : 
 
-1. client is writing  text to encrypt
-2. enQ to first queue
+1. client is sending text to the server 
+2. enQ to the first queue
 3. encrypt the text
-4. push to second queue to convert the latter (upper --> lower || lower --> upper)
-5. push to treed queue 
+4. push to the second queue to convert the letters (upper --> lower || lower --> upper)
+5. push to the third queue 
 6. server return to the client the encrypted text
 
 #### Test 
@@ -59,10 +59,19 @@ The action :
 
 
 ### Guard
-This Pattern is An app that allows only one thread to enter a function that updates a global pointer .
+This Pattern is an app that allows only one thread to enter a function that updates a global pointer .
+- Two threads trying to increase global number 
+### Test Guard
+<div dir='ltr'>
+
+    ./guardTest
+
+
+</div>
+
 
 ### Singleton 
-The singleton design pattern restricts the instantiation of a class to a single instance .
+The singleton design pattern restricts the instantiation of an object to a single instance .
 
 - Instance -  returns a pointer to the singleton .
 - Destroy - Destroy the singleton .
@@ -77,6 +86,14 @@ The singleton design pattern restricts the instantiation of a class to a single 
 
 ### Reactor 
 
+Thread that calls poll
+
+Receives function pointer to call on event
+
+Allows adding and removing file descriptor
+
+A thread that calls poll and calls the registered function.
+
 The server will create a chat between all the client that connect to the server. 
 
 - newReactor - create new Reactor .
@@ -87,5 +104,14 @@ The server will create a chat between all the client that connect to the server.
 
     ./pollserver
     ./pollclient localhost
+
+</div>
+
+
+### End 
+
+<div dir='ltr'>
+
+    ./make clean
 
 </div>

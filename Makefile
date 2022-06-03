@@ -2,7 +2,7 @@ CC = gcc
 CZZ = g++
 
 
-all: main1 queue.o client singleton pollserver pollclient activeTest Reactor.o object_active.o singleton.o library.so
+all: main1 queue.o client singleton pollserver pollclient activeTest guardTest Reactor.o object_active.o singleton.o library.so
 
 main1: main1.o queue.h
 	$(CC) -o main main1.o -lpthread
@@ -28,6 +28,10 @@ client: client.c
 
 activeTest: Active_Object_Test.c
 	$(CC) Active_Object_Test.c -o activeTest -lpthread
+
+guardTest: Guard_Test.cpp
+	$(CZZ) Guard_Test.cpp -o guardTest -lpthread
+
 
 singleton.o: singleton.cpp
 	$(CZZ) -c singleton.cpp
@@ -56,4 +60,4 @@ guard.o: guard.cpp
 
 
 clean:
-	rm -f *.o main queue client pollclient pollserver singleton activeTest
+	rm -f *.o main queue client pollclient pollserver singleton activeTest guardTest
