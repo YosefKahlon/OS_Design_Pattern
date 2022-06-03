@@ -60,13 +60,13 @@ The action :
 ### Guard
 This Pattern is An app that allows only one thread to enter a function that updates a global pointer .
 
-###Singleton 
+### Singleton 
 The singleton design pattern restricts the instantiation of a class to a single instance
 
 - Instance -  returns a pointer to the singleton .
 - Destroy - Destroy the singleton .
 
-####Test singleton 
+#### Test singleton 
 - Two object from type singleton return the same address 
 <div dir='ltr'>
 
