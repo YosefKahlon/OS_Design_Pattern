@@ -17,7 +17,7 @@ This project represent some Designs Pattern (Active-object, Pipeline, Guard, Sin
 
 
 
-###Active Object
+### Active Object
 <div dir='ltr'>
 
     ./main
@@ -28,7 +28,7 @@ This project represent some Designs Pattern (Active-object, Pipeline, Guard, Sin
 
 This pattern using a thread safe queue  
 
-####Queue
+#### Queue
 
 - createQ - creating a new queue.
 - destoryQ - free the queue form the memory.
@@ -57,7 +57,7 @@ The action :
 </div>
 
 
-###Guard
+### Guard
 This Pattern is An app that allows only one thread to enter a function that updates a global pointer .
 
 ###Singleton 
@@ -74,7 +74,7 @@ The singleton design pattern restricts the instantiation of a class to a single 
 
 </div>
 
-###Reactor 
+### Reactor 
 
 The server will create a chat between all the client that connect to the server. 
 
